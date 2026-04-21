@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ARIK Produciendo — DJ y Productor Musical. Reservas para eventos, bodas y clubs. Música propia en plataformas." />
+  <meta name="keywords" content="DJ Barcelona, productor musical, bodas DJ, eventos DJ, trap, reggaeton, ARIK Produciendo" />
+  <meta property="og:title" content="ARIK Produciendo — DJ & Music Producer" />
+  <meta property="og:description" content="Creo experiencias en directo y produzco música que conecta con la gente." />
+  <meta property="og:type" content="website" />
+  <title>ARIK Produciendo — DJ & Music Producer</title>
+
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  FUENTES: Anton (display) + Outfit (body)    ║
+    ║  Cargadas desde Google Fonts                 ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════
+       GRAIN OVERLAY — textura analógica
+       sobre toda la web (CSS puro)
+       ════════════════════════════════════ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════
+       CURSOR PERSONALIZADO
+       ════════════════════════════════════ -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════
+       LOADER DE ENTRADA
+       ════════════════════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-text">ARIK</span>
+      <div class="loader-progress"><div class="loader-fill" id="loaderFill"></div></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       NAVEGACIÓN
+       ════════════════════════════════════ -->
+  <header class="nav-wrap" id="navWrap" role="banner">
+    <nav class="nav" aria-label="Navegación principal">
+
+      <a href="#inicio" class="nav-logo" aria-label="ARIK Produciendo — Inicio">
+        <span class="logo-first">ARIK</span>
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-last">PROD</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="#musica" class="nav-link">Música</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <a href="#contacto" class="nav-cta btn-primary" data-hover>
+        Reservar fecha
+      </a>
+
+      <!-- Burger móvil -->
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Menú de navegación">
+      <ul role="list">
+        <li><a href="#sobre-mi"  class="mm-link">Sobre mí</a></li>
+        <li><a href="#musica"    class="mm-link">Música</a></li>
+        <li><a href="#servicios" class="mm-link">Servicios</a></li>
+        <li><a href="#portfolio" class="mm-link">Portfolio</a></li>
+        <li><a href="#contacto"  class="mm-link">Contacto</a></li>
+        <li><a href="#contacto"  class="mm-link mm-cta">Reservar fecha →</a></li>
+      </ul>
+      <!-- Redes sociales en el menú móvil -->
+      <div class="mm-socials">
+        <!--
+          ╔══════════════════════════════╗
+          ║  REEMPLAZA # con tu URL real ║
+          ╚══════════════════════════════╝
+        -->
+        <a href="https://www.instagram.com/_dj_arik_?igsh=aWRqODB4MThjZ2Ez" aria-label="Instagram"  target="_blank" rel="noopener noreferrer">IG</a>
+        <a href="#" aria-label="TikTok" target="_blank" rel="noopener noreferrer">TK</a>
+        <!-- <a href="#" aria-label="SoundCloud">SC</a> -->
+        <a href="#" aria-label="Spotify" target="_blank" rel="noopener noreferrer">SP</a>
+        <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">YT</a>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ════════════════════════════════════════════════
+         01 · HERO SECTION
+         Objetivo: impactar en los primeros 5 segundos.
+         Fondo: vídeo/imagen placeholder.
+         ════════════════════════════════════════════════ -->
+    <section id="inicio" class="hero" aria-label="Portada">
+
+      <!--
+        ╔═══════════════════════════════════════════════╗
+        ║  FONDO HERO                                   ║
+        ║  Opción A — Vídeo:                            ║
+        ║    Descomenta el <video> y añade tu archivo   ║
+        ║  Opción B — Imagen:                           ║
+        ║    Añade class="hero-bg-img" a la etiqueta    ║
+        ║    <div> y usa background-image en CSS        ║
+        ╚═══════════════════════════════════════════════╝
+      -->
+      <video 
+        autoplay 
+        muted 
+        playsinline 
+        class="hero-bg-img" 
+        style="object-fit: cover; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1; clip-path: inset(0 0 10% 0);">
+        <source src="img/video eric.mp4" type="video/mp4">
+      </video>
+
+      <!-- Imagen de fondo hero — Hangar DJ session -->
+      <!-- <div class="hero-bg-img" aria-hidden="true"
+           style="background-image: url('Imagen\ Currículum.png')"></div> -->
+
+      <!-- Canvas para partículas encima de la foto -->
+      <div class="hero-placeholder" aria-hidden="true" style="position:absolute;inset:0;z-index:1;">
+        <canvas id="heroCanvas"></canvas>
+      </div>
+
+      <!-- Overlay de gradiente -->
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Contenido del hero -->
+      <div class="hero-content container">
+
+        <!-- Etiqueta superior -->
+        <p class="hero-eyebrow" aria-hidden="true">
+          <span class="eyebrow-line"></span>
+          <span>DJ · Productor Musical · Barcelona</span>
+        </p>
+
+        <!-- Nombre con efecto de reveal -->
+        <div class="hero-title-wrap" aria-label="ARIK Produciendo">
+          <h1 class="hero-title">
+            <span class="ht-row" aria-hidden="true">
+              <span class="ht-word ht-arik">ARIK</span>
+            </span>
+            <span class="ht-row" aria-hidden="true">
+              <span class="ht-word ht-dj">PRODUCIENDO</span>
+              <span class="ht-accent" aria-hidden="true">&#x2605;</span>
+            </span>
+          </h1>
+        </div>
+
+        <!-- Subtítulo -->
+        <p class="hero-sub">
+          Creo experiencias en directo y produzco música<br class="br-desktop" />
+          que conecta con la gente.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas">
+          <a href="#musica" class="btn-primary btn-lg" data-hover>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="10,8 16,12 10,16" fill="currentColor"/>
+            </svg>
+            Escuchar música
+          </a>
+          <a href="#contacto" class="btn-outline btn-lg" data-hover>
+            Reservar evento
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Stats flotantes -->
+        <div class="hero-stats" aria-label="Estadísticas rápidas">
+          <div class="hstat">
+            <span class="hstat-num" data-count="200" data-prefix="+">+200</span>
+            <span class="hstat-label">Eventos</span>
+          </div>
+          <div class="hstat-sep" aria-hidden="true"></div>
+          <div class="hstat">
+            <span class="hstat-num" data-count="7" data-prefix="+">+7</span>
+            <span class="hstat-label">Años activo</span>
+          </div>
+          <div class="hstat-sep" aria-hidden="true"></div>
+          <div class="hstat">
+            <span class="hstat-num" data-count="30" data-suffix="k">30k</span>
+            <span class="hstat-label">Oyentes mensuales</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Ticker horizontal -->
+      <div class="hero-ticker" aria-hidden="true">
+        <div class="ticker-inner">
+          <span>DJ PARA EVENTOS</span><span class="t-dot">✦</span>
+          <span>PRODUCTOR MUSICAL</span><span class="t-dot">✦</span>
+          <span>BODAS</span><span class="t-dot">✦</span>
+          <span>CLUBS</span><span class="t-dot">✦</span>
+          <span>TRAP · REGGAETÓN</span><span class="t-dot">✦</span>
+          <span>BARCELONA</span><span class="t-dot">✦</span>
+          <span>DJ PARA EVENTOS</span><span class="t-dot">✦</span>
+          <span>PRODUCTOR MUSICAL</span><span class="t-dot">✦</span>
+          <span>BODAS</span><span class="t-dot">✦</span>
+          <span>CLUBS</span><span class="t-dot">✦</span>
+          <span>TRAP · REGGAETÓN</span><span class="t-dot">✦</span>
+          <span>BARCELONA</span><span class="t-dot">✦</span>
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <a href="#sobre-mi" class="scroll-hint" aria-label="Ir a la siguiente sección">
+        <span class="sh-label">scroll</span>
+        <div class="sh-track"><div class="sh-thumb"></div></div>
+      </a>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         02 · SOBRE MÍ
+         ════════════════════════════════════════════════ -->
+    <section id="sobre-mi" class="section-about" aria-label="Sobre mí">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <!-- Foto del artista -->
+          <div class="about-visual js-reveal-left">
+
+            <!--
+              ╔═══════════════════════════════════════════╗
+              ║  FOTO DEL ARTISTA                         ║
+              ║  Reemplaza el placeholder por:            ║
+              ║  <img src="img/arik-foto.jpg"            ║
+              ║       alt="ARIK DJ" class="about-img"/>  ║
+              ╚═══════════════════════════════════════════╝
+            -->
+            <div class="about-img-wrap">
+              <img
+                src="img/imagen_hangar.jpg"
+                alt="ARIK DJ — Foto de artista"
+                class="about-img"
+                loading="eager"
+              />
+            </div>  
+
+            <!-- Tarjeta flotante de credencial -->
+            <div class="about-badge js-float">
+              <div class="ab-icon" aria-hidden="true">🎛</div>
+              <div>
+                <strong>DJ & Productor</strong>
+                <span>desde 2016</span>
+              </div>
+            </div>
+
+            <!-- Número de sección decorativo -->
+            <span class="section-num" aria-hidden="true">02</span>
+          </div>
+
+          <!-- Texto -->
+          <div class="about-content js-reveal-right">
+
+            <div class="section-label">// Sobre mí</div>
+            <h2 class="about-title">
+              No soy solo quien pone<br />
+              música. <em>Construyo</em><br />
+              el momento.
+            </h2>
+
+            <div class="about-text">
+              <p>
+                Llevo más de 8 años detrás de los platos y dentro del estudio. Lo que empezó como pasión se convirtió en oficio — y el oficio en algo que la gente siente de verdad cuando está en la pista.
+              </p>
+              <p>
+                Como <strong>DJ</strong> leo la sala y construyo sets que tienen inicio, desarrollo y clímax. Como <strong>productor</strong> creo desde cero: beats, melodías y estructuras que suenan como algo propio, no como una copia.
+              </p>
+              <p>
+                Dos roles. Una misma filosofía: <em>la música tiene que hacer algo.</em>
+              </p>
+            </div>
+
+            <!-- Skills visuales -->
+            <div class="about-skills" aria-label="Especialidades">
+              <div class="skill-pill">Trap</div>
+              <div class="skill-pill">Reggaetón</div>
+              <div class="skill-pill">Beats exclusivos</div>
+              <div class="skill-pill">Mixing</div>
+              <div class="skill-pill">Mastering</div>
+              <div class="skill-pill">DJ Sets</div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="about-socials">
+              <!--
+                ╔══════════════════════════════╗
+                ║  Reemplaza # con tu URL real ║
+                ╚══════════════════════════════╝
+              -->
+              <a href="https://www.instagram.com/_dj_arik_?igsh=aWRqODB4MThjZ2Ez" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+              </a>
+              <!-- <a href="#" class="social-link" aria-label="SoundCloud">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M1.175 12.225c-.016 0-.018.032-.018.032L.5 14.303l.657 2.015c0 .02.014.032.018.032.014 0 .024-.012.024-.032L1.891 14.3l-.692-2.043c0-.02-.01-.032-.024-.032zm1.81 1.102c-.017 0-.027.014-.027.034l-.55 1.942.55 1.966c0 .018.01.032.027.032s.028-.014.028-.032l.627-1.966-.627-1.942c0-.02-.01-.034-.028-.034zm1.843-.297c-.022 0-.038.016-.038.038l-.487 2.239.487 2.298c0 .02.016.038.038.038s.038-.018.038-.038l.552-2.298-.552-2.239c0-.022-.016-.038-.038-.038zm1.87-.195c-.025 0-.044.019-.044.044l-.43 2.434.43 2.534c0 .025.019.044.044.044s.044-.019.044-.044l.487-2.534-.487-2.434c0-.025-.019-.044-.044-.044zm1.898-.102c-.03 0-.051.021-.051.051l-.373 2.536.373 2.681c0 .03.021.051.051.051s.051-.021.051-.051l.422-2.681-.422-2.536c0-.03-.021-.051-.051-.051zm17.232-2.13A5.5 5.5 0 0020.5 5.5a5.47 5.47 0 00-2.963.871C17.27 3.79 14.892 2 12.1 2c-.8 0-1.573.158-2.283.445-.28.11-.355.224-.358.325v14.884c.003.108.088.195.197.204h13.567C24.128 17.858 24 16.878 24 16.104c0-2.765-2.234-5-4.997-5-1.384 0-2.638.56-3.553 1.467-.24.244-.383.555-.383.883z"/></svg>
+                SoundCloud
+              </a> -->
+              <a href="https://open.spotify.com/intl-es/artist/3LFTmimZlCcv4qIYv2TsgH?si=NKFXZtasRcCCE9m0-NVcKQ" class="social-link" aria-label="Spotify" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                Spotify
+              </a>
+              <a href="#" class="social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.78 1.52V6.8a4.85 4.85 0 01-1.01-.11z"/></svg>
+                TikTok
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         03 · MÚSICA / PRODUCCIÓN
+         ════════════════════════════════════════════════ -->
+    <section id="musica" class="section-music" aria-label="Música y producción">
+      <div class="container">
+
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Música</div>
+            <h2 class="section-title">Beats, Sets<br />&amp; Releases</h2>
+          </div>
+          <p class="section-desc">
+            Desde el estudio hasta el escenario.<br />
+            Escucha antes de decidir.
+          </p>
+        </div>
+
+        <!-- Tabs de contenido -->
+        <div class="music-tabs" role="tablist" aria-label="Categorías de música">
+          <button class="mtab active" role="tab" aria-selected="true"  data-tab="releases" aria-controls="panel-releases">Releases</button>
+          <button class="mtab"        role="tab" aria-selected="false" data-tab="sets"     aria-controls="panel-sets">Sets DJ</button>
+          <button class="mtab"        role="tab" aria-selected="false" data-tab="tracks"   aria-controls="panel-tracks">Tracks</button>
+        </div>
+
+        <!-- Panel: Tracks — Reproductor con archivos reales -->
+        <div class="music-panel" id="panel-tracks" role="tabpanel">
+
+          <div class="audio-player-wrap js-reveal" aria-label="Reproductor de música ARIK DJ">
+
+            <!-- Visualizador de frecuencias (Web Audio API) -->
+            <canvas class="ap-visualizer" id="apCanvas" aria-hidden="true"></canvas>
+
+            <!-- Info track activo -->
+            <div class="ap-track-info">
+              <div class="ap-cover" id="apCover" aria-hidden="true">
+                <span id="apCoverLetter">01</span>
+              </div>
+              <div class="ap-meta">
+                <span class="ap-title" id="apTitle">Track 01 — Prod. ARIK DJ</span>
+                <span class="ap-genre" id="apGenre">Trap · 2024</span>
+              </div>
+              <div class="ap-time">
+                <span id="apCurrent">0:00</span>
+                <span class="ap-sep">/</span>
+                <span id="apDuration">--:--</span>
+              </div>
+            </div>
+
+            <!-- Barra de progreso scrubable -->
+            <div class="ap-progress-wrap" id="apProgressWrap"
+                 role="slider" aria-label="Progreso" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+              <div class="ap-progress-bg">
+                <div class="ap-progress-fill" id="apFill"></div>
+                <div class="ap-progress-thumb" id="apThumb"></div>
+              </div>
+            </div>
+
+            <!-- Controles -->
+            <div class="ap-controls">
+              <button class="ap-btn ap-prev" id="apPrev" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+              </button>
+              <button class="ap-btn ap-play-big" id="apPlay" aria-label="Reproducir / Pausar">
+                <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+              <button class="ap-btn ap-next" id="apNext" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6 18l8.5-6L6 6v12zm2.5-6 5-3.5v7L8.5 12zM16 6h2v12h-2z"/></svg>
+              </button>
+              <div class="ap-vol-group">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                </svg>
+                <input type="range" id="apVol" class="ap-vol-slider" min="0" max="1" step="0.01" value="0.85" aria-label="Volumen"/>
+              </div>
+            </div>
+
+            <!-- Lista de tracks (los 3 archivos reales) -->
+            <div class="ap-list">
+              <div class="ap-list-row active" data-idx="0" tabindex="0" role="button" aria-pressed="true">
+                <span class="apl-num">01</span>
+                <div class="apl-eq" aria-hidden="true"><b></b><b></b><b></b></div>
+                <div class="apl-info">
+                  <strong>Track 01</strong>
+                  <span>Prod. ARIK DJ · 2024</span>
+                </div>
+                <span class="apl-genre">Trap</span>
+                <span class="apl-dur" id="dur0">--:--</span>
+              </div>
+              <div class="ap-list-row" data-idx="1" tabindex="0" role="button" aria-pressed="false">
+                <span class="apl-num">02</span>
+                <div class="apl-eq" aria-hidden="true"><b></b><b></b><b></b></div>
+                <div class="apl-info">
+                  <strong>Track 02</strong>
+                  <span>Prod. ARIK DJ · 2024</span>
+                </div>
+                <span class="apl-genre">Reggaetón</span>
+                <span class="apl-dur" id="dur1">--:--</span>
+              </div>
+              <div class="ap-list-row" data-idx="2" tabindex="0" role="button" aria-pressed="false">
+                <span class="apl-num">03</span>
+                <div class="apl-eq" aria-hidden="true"><b></b><b></b><b></b></div>
+                <div class="apl-info">
+                  <strong>Track 03</strong>
+                  <span>Prod. ARIK DJ · 2024</span>
+                </div>
+                <span class="apl-genre">Trap / Rgt</span>
+                <span class="apl-dur" id="dur2">--:--</span>
+              </div>
+            </div>
+
+            <!-- Elemento audio oculto -->
+            <audio id="audioEl" preload="metadata"></audio>
+          </div>
+
+          <p class="ap-note js-reveal" data-delay="0.1">
+            ★ Demos de producción — Próximamente en Spotify y SoundCloud
+          </p>
+        </div>
+
+        <!-- Panel: Sets DJ — Reels reales -->
+        <div class="music-panel" id="panel-sets" role="tabpanel">
+          <div class="sets-grid">
+
+            <!-- Reel 1 — vídeo real -->
+            <div class="set-card js-reveal">
+              <div class="set-thumb set-thumb--video">
+                <video
+                  class="reel-video"
+                  src="Reel 1.mp4"
+                  controls
+                  preload="metadata"
+                  playsinline
+                  poster=""
+                  aria-label="Reel 1 — ARIK DJ en directo"
+                >
+                  Tu navegador no soporta vídeo HTML5.
+                </video>
+              </div>
+              <div class="set-info">
+                <strong>Reel 1 — Live Session</strong>
+                <span>ARIK DJ · 2024</span>
+              </div>
+            </div>
+
+            <!-- Reel 2 — vídeo real -->
+            <div class="set-card js-reveal" data-delay="0.1">
+              <div class="set-thumb set-thumb--video">
+                <video
+                  class="reel-video"
+                  src="Reel 2.mp4"
+                  controls
+                  preload="metadata"
+                  playsinline
+                  aria-label="Reel 2 — ARIK DJ set"
+                >
+                  Tu navegador no soporta vídeo HTML5.
+                </video>
+              </div>
+              <div class="set-info">
+                <strong>Reel 2 — DJ Set</strong>
+                <span>ARIK DJ · 2024</span>
+              </div>
+            </div>
+
+            <!-- Hangar session — foto + contexto -->
+            <div class="set-card js-reveal" data-delay="0.2">
+              <div class="set-thumb">
+                <img
+                  src="img/imagen_hangar.jpg" 
+                  alt="ARIK DJ — Sesión en el Hangar"
+                  class="set-img-real"
+                  loading="lazy"
+                />
+                <div class="set-overlay">
+                  <span class="set-overlay-text">Hangar Session</span>
+                </div>
+              </div>
+              <div class="set-info">
+                <strong>Hangar Session — Outdoor</strong>
+                <span>Sesión al aire libre · 2025</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Panel: Releases -->
+        <div class="music-panel active" id="panel-releases" role="tabpanel">
+          <div class="releases-grid">
+            <!--
+              Estructura de cada release:
+              .release-card > .rc-cover + .rc-info
+              rc-cov <img src="img/cover-modo-oscuro.jpg" alt="...">
+            -->
+            <div class="release-card js-reveal">
+              <div class="rc-cover">
+                <!-- <div class="rc-placeholder" style="--c1:#1a0040;--c2:#7B2FFF">MO</div> -->
+                <img src="img/cover_unico_cover.jpeg" alt="...">
+
+              </div>
+                <div class="rc-info">
+                    <strong>El Único</strong>
+                    <span>Jasy S, Arik</span>
+                    <a href="https://open.spotify.com/intl-es/track/4cwE2opmBvXOEypXHEM2oa?si=cd37160c2b8b4e5e" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+                </div>
+            </div>
+            <div class="release-card js-reveal" data-delay="0.08">
+              <div class="rc-cover">
+                <img src="img/cover_bad_bitch.png" alt="...">
+                <!-- <div class="rc-placeholder" style="--c1:#1a0020;--c2:#FF2D55">SP</div> -->
+              </div>
+              <div class="rc-info">
+                <strong>Bad Bitch</strong>
+                <span>Jasy S, BBY KILO, Arik Produciendo</span>
+                <a href="https://open.spotify.com/track/0ZxH79YAmstpstZoPoQwcf?si=23a044be020c4a86&nd=1&dlsi=2651912b23ed4504" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+              </div>
+            </div>
+            <div class="release-card js-reveal" data-delay="0.16">
+              <div class="rc-cover">
+                <!-- <div class="rc-placeholder" style="--c1:#001a1a;--c2:#00D4FF">LN</div> -->
+                <img src="img/cover_gatita_maliant.png" alt="...">
+              </div>
+              <div class="rc-info">
+                <strong>Gatita Maliant</strong>
+                <span>Real Dimas, Arik Produciendo</span>
+                <a href="https://open.spotify.com/intl-es/track/2AUBAGsoqEGjFlq7k3sSbX?si=cf3fe3be6739412d" class="rc-listen" target="_blank" rel="noopener noreferrer"> Escuchar →</a>
+              </div>
+            </div>
+            <div class="release-card js-reveal" data-delay="0.24">
+              <div class="rc-cover">
+                <!-- <div class="rc-placeholder" style="--c1:#0d0d00;--c2:#FFD700">EP</div> -->
+                <img src="img/cpver_conmigo.jpeg" alt="...">
+              </div>
+              <div class="rc-info">
+                <strong>Conmigo</strong>
+                <span>Real Dimas, Arik Produciendo</span>
+                <a href="https://open.spotify.com/intl-es/track/1mY8fXeKdlKokzacHtiZ3x?si=67bc399490ac4d6f" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTAs de música -->
+        <div class="music-ctas js-reveal">
+          <a href="https://open.spotify.com/intl-es/artist/3LFTmimZlCcv4qIYv2TsgH?si=whVgFmNvT1q12f3vKLc98A" class="btn-primary" data-hover target="_blank" rel="noopener noreferrer">Ver en Spotify</a>
+          <a href="#contacto" class="btn-outline" data-hover>Contactar →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         04 · SERVICIOS (EVENTOS)
+         ════════════════════════════════════════════════ -->
+    <section id="servicios" class="section-services" aria-label="Servicios de DJ para eventos">
+      <div class="container">
+
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Servicios</div>
+            <h2 class="section-title">¿Para qué<br />tipo de evento?</h2>
+          </div>
+          <p class="section-desc">
+            Cada evento es diferente.<br />
+            La experiencia, siempre la misma: brutal.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Servicio 1: Eventos privados -->
+          <article class="service-card js-reveal" data-delay="0" aria-label="DJ para eventos privados">
+            <div class="sc-icon" aria-hidden="true">🎧</div>
+            <div class="sc-num" aria-hidden="true">01</div>
+            <h3 class="sc-title">Eventos Privados</h3>
+            <p class="sc-desc">
+              Fiestas de empresa, cumpleaños, inauguraciones. Adapto el set al ambiente que necesitas, desde ambiente lo-fi hasta full party mode.
+            </p>
+            <ul class="sc-features" aria-label="Características">
+              <li>Set personalizado según tu evento</li>
+              <li>Todos los géneros disponibles</li>
+              <li>Equipo propio opcional</li>
+              <li>Desde 2h hasta la madrugada</li>
+            </ul>
+            <a href="#contacto" class="sc-cta">Consultar disponibilidad →</a>
+          </article>
+
+          <!-- Servicio 2: Bodas -->
+          <article class="service-card service-card--featured js-reveal" data-delay="0.1" aria-label="DJ para bodas">
+            <div class="sc-badge">Más popular</div>
+            <div class="sc-icon" aria-hidden="true">🎉</div>
+            <!-- 💍 -->
+            <div class="sc-num" aria-hidden="true">02</div>
+            <h3 class="sc-title">Grandes formatos.</h3>
+            <p class="sc-desc">
+              El día más importante merece la música perfecta. Coordino cóctel, cena y fiesta para que cada momento tenga su sonido exacto.
+            </p>
+            <!-- Formato adaptable a grandes audiencias Reggaetón, comercial, clásicos y hits actuales Experiencia en escenarios abiertos y fiestas masivas -->
+            <ul class="sc-features" aria-label="Características">
+              <li>Formato adaptable a grandes audiencias</li>
+              <li>Reaggaetón, comercial, clásicos y hits</li>
+              <li>Experiencia en escenarios abiertos y fiestas masivas</li>
+              <!-- <li>Backup de equipo siempre</li> -->
+            </ul>
+            <a href="#contacto" class="sc-cta sc-cta--solid">Reservar fecha →</a>
+          </article>
+
+          <!-- Servicio 3: Clubs -->
+          <article class="service-card js-reveal" data-delay="0.2" aria-label="DJ para clubs y festivales">
+            <div class="sc-icon" aria-hidden="true">🕺</div>
+            <div class="sc-num" aria-hidden="true">03</div>
+            <h3 class="sc-title">Clubs &amp; Festivales</h3>
+            <p class="sc-desc">
+              Sets de 2-4 horas construidos para mover pistas. Trap y reggaetón con identidad propia. Para promotores que quieren algo diferente.
+            </p>
+            <ul class="sc-features" aria-label="Características">
+              <li>Sets de 2h, 3h o 4h</li>
+              <li>Trap · Reggaetón · Urban</li>
+              <li>EPK disponible para booking</li>
+              <li>Rider técnico en PDF</li>
+            </ul>
+            <a href="#contacto" class="sc-cta">Booking profesional →</a>
+          </article>
+
+        </div>
+
+        <!-- CTA de servicios -->
+        <div class="services-cta js-reveal">
+          <p>¿No encuentras lo que buscas? Hablamos y lo adaptamos.</p>
+          <a href="#contacto" class="btn-primary btn-lg" data-hover>Consultar sin compromiso</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         05 · PORTFOLIO VISUAL
+         ════════════════════════════════════════════════ -->
+    <section id="portfolio" class="section-portfolio" aria-label="Portfolio visual">
+      <div class="container">
+
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Portfolio</div>
+            <h2 class="section-title">En directo</h2>
+          </div>
+          <a href="#contacto" class="btn-outline btn-sm" data-hover>Ver más →</a>
+        </div>
+
+        <!--
+          ╔═══════════════════════════════════════════════════════╗
+          ║  PORTFOLIO GRID                                       ║
+          ║                                                       ║
+          ║  Para añadir fotos reales:                            ║
+          ║  1. Crea carpeta img/portfolio/                       ║
+          ║  2. En cada .pf-card, reemplaza .pf-placeholder por:  ║
+          ║     <img src="img/portfolio/foto1.jpg"                ║
+          ║          alt="Descripción del evento"                 ║
+          ║          class="pf-img" loading="lazy" />             ║
+          ║                                                       ║
+          ║  Para añadir vídeos cortos (mp4):                     ║
+          ║     <video class="pf-img" autoplay muted loop         ║
+          ║            playsinline>                               ║
+          ║       <source src="video/clip1.mp4" type="video/mp4"> ║
+          ║     </video>                                          ║
+          ╚═══════════════════════════════════════════════════════╝
+        -->
+        <div class="portfolio-grid">
+
+          <div class="pf-card pf-card--tall js-reveal">
+            <div class="pf-media">
+              <img
+                src="img/imagen_hangar.jpg"
+                alt="ARIK DJ — Sesión en el Hangar"
+                class="pf-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="pf-hover-info">
+              <strong>Hangar Session</strong>
+              <span>Sesión outdoor · 2024</span>
+            </div>
+          </div>
+
+          <div class="pf-card js-reveal" data-delay="0.08">
+            <div class="pf-media">
+              <img
+                src="img/arik_show.png"
+                alt="ARIK DJ — Sesión en el Hangar"
+                class="pf-img"
+                loading="lazy"
+              />
+              <!-- <div class="pf-placeholder" style="--c:#001040">
+                <span>🎬</span><p>Vídeo cliip</p>
+              </div> -->
+            </div>
+            <div class="pf-hover-info">
+              <strong>Sant Joan de Vilatorrada</strong>
+              <span>Festa Major</span>
+            </div>
+          </div>
+
+          <div class="pf-card js-reveal" data-delay="0.16">
+            <div class="pf-media">
+              <img
+                src="img/arik_hangar2.png"
+                alt="ARIK DJ — Sesión en el Hangar"
+                class="pf-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="pf-hover-info">
+              <strong>Festival Pulso</strong>
+              <span>Madrid · 2024</span>
+            </div>
+          </div>
+
+          <div class="pf-card pf-card--wide js-reveal" data-delay="0.06">
+            <div class="pf-media">
+              <div class="pf-placeholder" style="--c:#001a1a">
+                <span>🎬</span><p>Aftermovie boda</p>
+              </div>
+            </div>
+            <div class="pf-hover-info">
+              <strong>Boda García — Aftermovie</strong>
+              <span>Manresa · Jun 2024</span>
+            </div>
+          </div>
+
+          <div class="pf-card js-reveal" data-delay="0.14">
+            <div class="pf-media">
+              <div class="pf-placeholder" style="--c:#1a1000">
+                <span>📸</span><p>Foto evento 3</p>
+              </div>
+            </div>
+            <div class="pf-hover-info">
+              <strong>Sala Eclipse</strong>
+              <span>Valencia · 2024</span>
+            </div>
+          </div>
+
+          <div class="pf-card js-reveal" data-delay="0.22">
+            <div class="pf-media">
+              <div class="pf-placeholder" style="--c:#0d001a">
+                <span>📸</span><p>Estudio · BTS</p>
+              </div>
+            </div>
+            <div class="pf-hover-info">
+              <strong>Studio Session BTS</strong>
+              <span>Barcelona · 2024</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         06 · TESTIMONIOS
+         ════════════════════════════════════════════════ -->
+    <section class="section-testimonials" aria-label="Testimonios">
+      <div class="container">
+
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Testimonios</div>
+            <h2 class="section-title">Lo que dicen</h2>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <!--
+            Reemplaza estos testimonios con los reales.
+            Estructura: .tcard > .tcard-quote + .tcard-author
+          -->
+
+          <blockquote class="tcard js-reveal">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">
+              "ARIK fue la mejor decisión de nuestra boda. Leyó la sala perfectamente — desde el cóctel tranquilo hasta las 4am sin que nadie quisiera parar."
+            </p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" aria-hidden="true">MR</div>
+              <div>
+                <strong>María &amp; Roberto</strong>
+                <span>Boda · Junio 2024 · Barcelona</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tcard js-reveal" data-delay="0.1">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">
+              "Contratamos a ARIK para nuestra fiesta de empresa y fue un éxito total. Profesional, puntual y con una capacidad única para mantener la energía."
+            </p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--teal)" aria-hidden="true">JL</div>
+              <div>
+                <strong>Jaume Lluis</strong>
+                <span>Director de RRHH · Evento corporativo</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tcard js-reveal" data-delay="0.2">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">
+              "Sus beats son otro nivel. Producción limpia, con identidad propia. Le encargué un instrumental y superó todas mis expectativas."
+            </p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--hot)" aria-hidden="true">SK</div>
+              <div>
+                <strong>Skar · Artista</strong>
+                <span>Colaboración musical · 2024</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         07 · CTA FINAL
+         ════════════════════════════════════════════════ -->
+    <section class="section-final-cta" aria-label="Llamada a la acción">
+      <div class="fca-bg" aria-hidden="true"></div>
+      <div class="container fca-inner">
+        <div class="fca-content js-reveal">
+          <p class="fca-eyebrow">¿Listo para el siguiente nivel?</p>
+          <h2 class="fca-title">
+            ¿Quieres un evento<br />
+            <em>inolvidable</em> o descubrir<br />
+            nueva música?
+          </h2>
+          <p class="fca-sub">
+            No hay dos eventos iguales. Cuéntame el tuyo y lo hacemos realidad.
+          </p>
+          <div class="fca-ctas">
+            <a href="#contacto" class="btn-primary btn-lg btn-glow" data-hover>
+              Reservar ahora
+            </a>
+            <a href="#musica" class="btn-ghost btn-lg" data-hover>
+              Escuchar música
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════
+         08 · CONTACTO
+         ════════════════════════════════════════════════ -->
+    <section id="contacto" class="section-contact" aria-label="Formulario de contacto y booking">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <!-- Info izquierda -->
+          <div class="contact-info js-reveal-left">
+            <div class="section-label">// Contacto &amp; Booking</div>
+            <h2 class="contact-title">
+              Hablemos.<br />
+              <em>Sin rodeoooos.</em>
+            </h2>
+            <p class="contact-desc">
+              Cuéntame qué necesitas y te respondo en menos de 24h. Reserva de fechas, presupuestos y beats: todo por aquí.
+            </p>
+
+            <!-- Opciones de contacto directo -->
+            <div class="contact-methods">
+              <a href="mailto:arik@email.com" class="cm-item">
+                <!--
+                  Reemplaza arik@email.com con tu email real
+                -->
+                <div class="cm-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Email</strong>
+                  <span>arik@email.com</span>
+                </div>
+              </a>
+              <a href="https://wa.me/34600000000" class="cm-item" target="_blank" rel="noopener">
+                <!--
+                  Reemplaza 34600000000 con tu número real (código país + número)
+                -->
+                <div class="cm-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.098.543 4.07 1.493 5.785L.057 23.443a.5.5 0 00.615.601l5.76-1.504A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.652-.502-5.178-1.381l-.372-.214-3.856 1.006 1.026-3.741-.228-.37A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                </div>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <span>Respuesta rápida</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Próximas fechas libres (decorativo) -->
+            <div class="contact-avail">
+              <span class="ca-label">// Disponibilidad próxima</span>
+              <div class="ca-dates">
+                <span class="ca-date available">Mayo 2025</span>
+                <span class="ca-date available">Jun 2025</span>
+                <span class="ca-date busy">Jul 2025 — Completo</span>
+                <span class="ca-date available">Ago 2025</span>
+              </div>
+              <p class="ca-note">
+                <!--
+                  Actualiza estas fechas manualmente cuando cambien
+                -->
+                Actualizado: Abril 2025
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Formulario derecho -->
+          <div class="contact-form-wrap js-reveal-right">
+
+            <!-- Tabs de motivo -->
+            <div class="form-tabs" role="tablist" aria-label="Motivo de contacto">
+              <button class="ftab active" data-ftab="evento" role="tab" aria-selected="true">🎧 Evento DJ</button>
+              <button class="ftab" data-ftab="beat" role="tab" aria-selected="false">🎛 Beat / Prod.</button>
+              <button class="ftab" data-ftab="otro" role="tab" aria-selected="false">💬 Otro</button>
+            </div>
+
+            <!--
+              ╔════════════════════════════════════════════════════════╗
+              ║  FORMULARIO — CONEXIÓN A BACKEND                      ║
+              ║                                                        ║
+              ║  OPCIÓN A: Formspree (más simple, sin backend propio)  ║
+              ║    1. Ve a formspree.io, crea una cuenta               ║
+              ║    2. Crea un nuevo formulario                         ║
+              ║    3. Cambia action por tu URL de Formspree:           ║
+              ║       action="https://formspree.io/f/TU_ID"           ║
+              ║    4. method="POST"                                    ║
+              ║                                                        ║
+              ║  OPCIÓN B: Supabase (full-stack)                      ║
+              ║    En script.js, sección "BACKEND", hay un ejemplo     ║
+              ║    de cómo enviar los datos a Supabase via fetch().    ║
+              ║    Necesitarás:                                        ║
+              ║    - SUPABASE_URL                                      ║
+              ║    - SUPABASE_ANON_KEY                                 ║
+              ║    - Tabla: contact_requests                           ║
+              ║                                                        ║
+              ║  OPCIÓN C: Firebase Firestore                          ║
+              ║    Ver comentario en script.js, sección "BACKEND"      ║
+              ║                                                        ║
+              ║  OPCIÓN D: API propia (Express/Node, PHP, etc.)        ║
+              ║    Cambia action por tu endpoint: /api/contact         ║
+              ╚════════════════════════════════════════════════════════╝
+            -->
+            <form
+              id="contactForm"
+              class="contact-form"
+              novalidate
+              aria-label="Formulario de contacto"
+            >
+              <!-- Campo oculto para el tipo de consulta -->
+              <input type="hidden" name="tipo" id="formTipo" value="evento" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name">Nombre *</label>
+                  <input
+                    type="text" id="f-name" name="nombre"
+                    placeholder="Tu nombre completo"
+                    required autocomplete="name"
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="f-email">Email *</label>
+                  <input
+                    type="email" id="f-email" name="email"
+                    placeholder="tu@email.com"
+                    required autocomplete="email"
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+
+              <!-- Campos específicos de evento (visibles solo en tab "evento") -->
+              <div id="evento-fields" class="form-dynamic">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="f-tipo-evento">Tipo de evento</label>
+                    <select id="f-tipo-evento" name="tipo_evento">
+                      <option value="" disabled selected>Selecciona...</option>
+                      <option value="boda">Boda</option>
+                      <option value="privado">Evento privado</option>
+                      <option value="club">Club / Discoteca</option>
+                      <option value="festival">Festival</option>
+                      <option value="corporativo">Evento corporativo</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="f-fecha">Fecha del evento</label>
+                    <input
+                      type="date" id="f-fecha" name="fecha_evento"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="f-lugar">Lugar / Ciudad</label>
+                    <input type="text" id="f-lugar" name="lugar" placeholder="Barcelona, Valencia..." />
+                  </div>
+                  <div class="form-group">
+                    <label for="f-asistentes">Nº de asistentes (aprox.)</label>
+                    <select id="f-asistentes" name="asistentes">
+                      <option value="" disabled selected>Selecciona...</option>
+                      <option>&lt; 50 personas</option>
+                      <option>50–150 personas</option>
+                      <option>150–300 personas</option>
+                      <option>300–500 personas</option>
+                      <option>+500 personas</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Campos específicos de beat -->
+              <div id="beat-fields" class="form-dynamic" style="display:none">
+                <div class="form-group">
+                  <label for="f-tipo-beat">Tipo de producción</label>
+                  <select id="f-tipo-beat" name="tipo_beat">
+                    <option value="" disabled selected>Selecciona...</option>
+                    <option>Beat exclusivo — Trap</option>
+                    <option>Beat exclusivo — Reggaetón</option>
+                    <option>Mixing / Mastering</option>
+                    <option>Colaboración artística</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="f-msg">Mensaje *</label>
+                <textarea
+                  id="f-msg" name="mensaje" rows="4"
+                  placeholder="Cuéntame los detalles de tu evento o proyecto..."
+                  required aria-required="true"
+                ></textarea>
+              </div>
+
+              <!-- Honeypot anti-spam (oculto, los bots lo rellenan) -->
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+              <button type="submit" class="btn-submit btn-primary btn-lg" id="submitBtn">
+                <span class="btn-text">Enviar mensaje</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <!-- Mensaje de confirmación (aparece tras enviar) -->
+              <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
+                <span>✓</span> ¡Mensaje enviado! Te respondo en menos de 24h.
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="#inicio" class="nav-logo footer-logo" aria-label="ARIK Produciendo — Inicio">
+          <span class="logo-first">ARIK</span>
+          <span class="logo-dot" aria-hidden="true"></span>
+          <span class="logo-last">PROD</span>
+        </a>
+        <p>DJ &amp; Music Producer · Barcelona</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#musica">Música</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contacto">Booking</a>
+      </nav>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/_dj_arik_?igsh=aWRqODB4MThjZ2Ez" class="fs-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="#" class="fs-link" aria-label="SoundCloud" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M1.175 12.225c-.016 0-.018.032-.018.032L.5 14.303l.657 2.015c0 .02.014.032.018.032.014 0 .024-.012.024-.032L1.891 14.3l-.692-2.043c0-.02-.01-.032-.024-.032zm1.81 1.102c-.017 0-.027.014-.027.034l-.55 1.942.55 1.966c0 .018.01.032.027.032s.028-.014.028-.032l.627-1.966-.627-1.942c0-.02-.01-.034-.028-.034zm1.843-.297c-.022 0-.038.016-.038.038l-.487 2.239.487 2.298c0 .02.016.038.038.038s.038-.018.038-.038l.552-2.298-.552-2.239c0-.022-.016-.038-.038-.038zm1.87-.195c-.025 0-.044.019-.044.044l-.43 2.434.43 2.534c0 .025.019.044.044.044s.044-.019.044-.044l.487-2.534-.487-2.434c0-.025-.019-.044-.044-.044zm1.898-.102c-.03 0-.051.021-.051.051l-.373 2.536.373 2.681c0 .03.021.051.051.051s.051-.021.051-.051l.422-2.681-.422-2.536c0-.03-.021-.051-.051-.051zm1.906-.085c-.033 0-.057.024-.057.057l-.316 2.621.316 2.737c0 .033.024.057.057.057s.057-.024.057-.057l.357-2.737-.357-2.621c0-.033-.024-.057-.057-.057zm1.917-.038c-.038 0-.065.027-.065.065l-.258 2.659.258 2.786c0 .038.027.065.065.065s.065-.027.065-.065l.292-2.786-.292-2.659c0-.038-.027-.065-.065-.065zm1.928.016c-.041 0-.073.032-.073.073l-.202 2.643.202 2.829c0 .041.032.073.073.073s.073-.032.073-.073l.228-2.829-.228-2.643c0-.041-.032-.073-.073-.073zm1.94.057c-.045 0-.081.036-.081.081l-.145 2.586.145 2.866c0 .045.036.081.081.081s.081-.036.081-.081l.164-2.866-.164-2.586c0-.045-.036-.081-.081-.081zm5.168-3.099A5.5 5.5 0 0020.5 5.5a5.47 5.47 0 00-2.963.871C17.27 3.79 14.892 2 12.1 2c-.8 0-1.573.158-2.283.445-.28.11-.355.224-.358.325v14.884c.003.108.088.195.197.204h13.567C24.128 17.858 24 16.878 24 16.104c0-2.765-2.234-5-4.997-5-1.384 0-2.638.56-3.553 1.467-.24.244-.383.555-.383.883z"/></svg>
+        </a>
+        <a href="https://open.spotify.com/intl-es/artist/3LFTmimZlCcv4qIYv2TsgH?si=NKFXZtasRcCCE9m0-NVcKQ" class="fs-link" aria-label="Spotify" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </a>
+        <a href="#" class="fs-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="#" class="fs-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.78 1.52V6.8a4.85 4.85 0 01-1.01-.11z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer-copy">
+        <span>© 2025 ARIK Produciendo · Todos los derechos reservados</span>
+        <!--
+          Opcional: añade enlace a política de privacidad
+          <a href="/privacidad">Privacidad</a>
+        -->
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════════
+       BOTÓN FLOTANTE DE WHATSAPP
+       ════════════════════════════════════════════════ -->
+  <a
+    href="https://wa.me/34646574968?text=Hola%20ARIK%2C%20me%20interesa%20contratarte%20para%20un%20evento."
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    title="Escríbeme por WhatsApp"
+  >
+    <!--
+      Reemplaza 34600000000 con tu número real.
+      El texto del mensaje también es personalizable.
+    -->
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.098.543 4.07 1.493 5.785L.057 23.443a.5.5 0 00.615.601l5.76-1.504A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.652-.502-5.178-1.381l-.372-.214-3.856 1.006 1.026-3.741-.228-.37A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+    <span class="fab-tooltip">¿Hablamos?</span>
+  </a>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
