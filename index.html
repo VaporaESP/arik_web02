@@ -62,7 +62,16 @@
       <ul class="nav-links" role="list">
         <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
         <li><a href="#musica" class="nav-link">Música</a></li>
-        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="#servicios" class="nav-link nav-link--has-dropdown">
+            Servicios
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="servicios-dj.html" class="nav-dropdown-item"><span class="dd-icon">🎧</span> DJ</a>
+            <a href="servicios-productor.html" class="nav-dropdown-item"><span class="dd-icon">🎛</span> Productor</a>
+          </div>
+        </li>
         <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
         <li><a href="#contacto" class="nav-link">Contacto</a></li>
       </ul>
@@ -83,7 +92,8 @@
       <ul role="list">
         <li><a href="#sobre-mi"  class="mm-link">Sobre mí</a></li>
         <li><a href="#musica"    class="mm-link">Música</a></li>
-        <li><a href="#servicios" class="mm-link">Servicios</a></li>
+        <li><a href="servicios-dj.html"        class="mm-link">🎧 DJ</a></li>
+        <li><a href="servicios-productor.html"  class="mm-link">🎛 Productor</a></li>
         <li><a href="#portfolio" class="mm-link">Portfolio</a></li>
         <li><a href="#contacto"  class="mm-link">Contacto</a></li>
         <li><a href="#contacto"  class="mm-link mm-cta">Reservar fecha →</a></li>
@@ -597,81 +607,61 @@
     <!-- ════════════════════════════════════════════════
          04 · SERVICIOS (EVENTOS)
          ════════════════════════════════════════════════ -->
-    <section id="servicios" class="section-services" aria-label="Servicios de DJ para eventos">
+    <section id="servicios" class="section-services" aria-label="Servicios">
       <div class="container">
 
         <div class="section-header js-reveal">
           <div>
             <div class="section-label">// Servicios</div>
-            <h2 class="section-title">¿Para qué<br />tipo de evento?</h2>
+            <h2 class="section-title">DJ &amp;<br /><em>Productor</em></h2>
           </div>
           <p class="section-desc">
-            Cada evento es diferente.<br />
-            La experiencia, siempre la misma: brutal.
+            Dos mundos, un mismo artista.<br />
+            Elige lo que necesitas.
           </p>
         </div>
 
-        <div class="services-grid">
+        <div class="services-grid services-grid--two js-reveal">
 
-          <!-- Servicio 1: Eventos privados -->
-          <article class="service-card js-reveal" data-delay="0" aria-label="DJ para eventos privados">
+          <!-- Card DJ -->
+          <article class="service-card service-card--big js-reveal" data-delay="0" aria-label="Servicios DJ">
             <div class="sc-icon" aria-hidden="true">🎧</div>
             <div class="sc-num" aria-hidden="true">01</div>
-            <h3 class="sc-title">Eventos Privados</h3>
+            <h3 class="sc-title">DJ</h3>
             <p class="sc-desc">
-              Fiestas de empresa, cumpleaños, inauguraciones. Adapto el set al ambiente que necesitas, desde ambiente lo-fi hasta full party mode.
+              Eventos privados, bodas, clubs y festivales. Sets construidos para cada momento, con identidad propia y energía que no para.
             </p>
-            <ul class="sc-features" aria-label="Características">
-              <li>Set personalizado según tu evento</li>
-              <li>Todos los géneros disponibles</li>
-              <li>Equipo propio opcional</li>
-              <li>Desde 2h hasta la madrugada</li>
+            <ul class="sc-features" aria-label="Qué incluye">
+              <li>Eventos privados y corporativos</li>
+              <li>Bodas y grandes formatos</li>
+              <li>Clubs &amp; Festivales</li>
+              <li>Trap · Reggaetón · Comercial</li>
             </ul>
-            <a href="#contacto" class="sc-cta">Consultar disponibilidad →</a>
+            <a href="servicios-dj.html" class="sc-cta">Ver servicios DJ →</a>
           </article>
 
-          <!-- Servicio 2: Bodas -->
-          <article class="service-card service-card--featured js-reveal" data-delay="0.1" aria-label="DJ para bodas">
-            <div class="sc-badge">Más popular</div>
-            <div class="sc-icon" aria-hidden="true">🎉</div>
-            <!-- 💍 -->
+          <!-- Card Productor -->
+          <article class="service-card service-card--big service-card--featured js-reveal" data-delay="0.15" aria-label="Servicios Producción">
+            <div class="sc-badge">Nuevo</div>
+            <div class="sc-icon" aria-hidden="true">🎛</div>
             <div class="sc-num" aria-hidden="true">02</div>
-            <h3 class="sc-title">Grandes formatos.</h3>
+            <h3 class="sc-title">Productor</h3>
             <p class="sc-desc">
-              El día más importante merece la música perfecta. Coordino cóctel, cena y fiesta para que cada momento tenga su sonido exacto.
+              Beats exclusivos, mixing, mastering y colaboraciones artísticas. Música con identidad propia, lista para plataformas.
             </p>
-            <!-- Formato adaptable a grandes audiencias Reggaetón, comercial, clásicos y hits actuales Experiencia en escenarios abiertos y fiestas masivas -->
-            <ul class="sc-features" aria-label="Características">
-              <li>Formato adaptable a grandes audiencias</li>
-              <li>Reaggaetón, comercial, clásicos y hits</li>
-              <li>Experiencia en escenarios abiertos y fiestas masivas</li>
-              <!-- <li>Backup de equipo siempre</li> -->
+            <ul class="sc-features" aria-label="Qué incluye">
+              <li>Beats exclusivos (Trap / Reggaetón)</li>
+              <li>Mixing &amp; Mastering profesional</li>
+              <li>Colaboraciones con artistas</li>
+              <li>Producción completa de single</li>
             </ul>
-            <a href="#contacto" class="sc-cta sc-cta--solid">Reservar fecha →</a>
-          </article>
-
-          <!-- Servicio 3: Clubs -->
-          <article class="service-card js-reveal" data-delay="0.2" aria-label="DJ para clubs y festivales">
-            <div class="sc-icon" aria-hidden="true">🕺</div>
-            <div class="sc-num" aria-hidden="true">03</div>
-            <h3 class="sc-title">Clubs &amp; Festivales</h3>
-            <p class="sc-desc">
-              Sets de 2-4 horas construidos para mover pistas. Trap y reggaetón con identidad propia. Para promotores que quieren algo diferente.
-            </p>
-            <ul class="sc-features" aria-label="Características">
-              <li>Sets de 2h, 3h o 4h</li>
-              <li>Trap · Reggaetón · Urban</li>
-              <li>EPK disponible para booking</li>
-              <li>Rider técnico en PDF</li>
-            </ul>
-            <a href="#contacto" class="sc-cta">Booking profesional →</a>
+            <a href="servicios-productor.html" class="sc-cta sc-cta--solid">Ver servicios producción →</a>
           </article>
 
         </div>
 
-        <!-- CTA de servicios -->
         <div class="services-cta js-reveal">
-          <p>¿No encuentras lo que buscas? Hablamos y lo adaptamos.</p>
+          <p>¿Tienes un proyecto diferente? Hablamos y lo adaptamos.</p>
           <a href="#contacto" class="btn-primary btn-lg" data-hover>Consultar sin compromiso</a>
         </div>
 

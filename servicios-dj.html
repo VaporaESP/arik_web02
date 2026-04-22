@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ARIK Produciendo — DJ para eventos privados, bodas, clubs y festivales en Barcelona. Más de 200 eventos. Reserva ya." />
+  <title>Servicios DJ — ARIK Produciendo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Hero ── */
+    .page-hero {
+      min-height: 60vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); position: relative; overflow: hidden;
+    }
+    .page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .page-hero-bg-img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.35) saturate(.6);
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(6,6,8,.95) 40%, rgba(6,6,8,.4) 100%),
+                  linear-gradient(to top, rgba(6,6,8,.8) 0%, transparent 50%);
+    }
+    .page-hero-content { position: relative; z-index: 1; padding: 5rem 0; }
+    .page-hero-label { font-size: .68rem; letter-spacing: .25em; color: var(--violet); text-transform: uppercase; font-weight: 600; display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+    .page-hero-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--violet); }
+    .page-hero-title { font-family: var(--font-d); font-size: clamp(3.5rem, 11vw, 9rem); line-height: .9; letter-spacing: .02em; }
+    .page-hero-title em { font-style: normal; color: var(--violet); }
+    .page-hero-sub { color: var(--text-2); font-size: 1rem; max-width: 460px; margin: 1.5rem 0 2.5rem; line-height: 1.8; }
+    .page-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── Stats bar ── */
+    .stats-bar { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.2rem 0; }
+    .stats-bar-inner { display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap; }
+    .sbar-stat { text-align: center; padding: 0 3rem; }
+    .sbar-num { font-family: var(--font-d); font-size: 3rem; line-height: 1; color: var(--text); display: block; }
+    .sbar-num em { font-style: normal; color: var(--violet); }
+    .sbar-label { font-size: .62rem; letter-spacing: .2em; color: var(--text-3); text-transform: uppercase; margin-top: .3rem; display: block; }
+    .sbar-sep { width: 1px; height: 50px; background: var(--border-2); flex-shrink: 0; }
+
+    /* ── Process ── */
+    .process-section { padding: 6rem 0; background: var(--bg-2); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 3rem; }
+    .process-step { background: var(--bg-2); padding: 2.5rem 1.8rem; position: relative; overflow: hidden; transition: background .3s; }
+    .process-step:hover { background: var(--bg-3); }
+    .ps-num { font-family: var(--font-d); font-size: 6rem; line-height: 1; color: rgba(255,255,255,.04); position: absolute; bottom: .5rem; right: 1rem; pointer-events: none; }
+    .ps-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+    .ps-title { font-family: var(--font-d); font-size: 1.3rem; letter-spacing: .03em; margin-bottom: .8rem; line-height: 1.1; }
+    .ps-desc { font-size: .82rem; color: var(--text-2); line-height: 1.8; }
+    .ps-connector { display: none; }
+
+    /* ── Mini portfolio ── */
+    .mini-portfolio { padding: 6rem 0; background: var(--bg-3); }
+    .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 2.5rem; }
+    .mini-cell { overflow: hidden; aspect-ratio: 4/3; }
+    .mini-cell img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) brightness(.75); transition: filter .45s, transform .55s var(--ease); display: block; }
+    .mini-cell:hover img { filter: grayscale(0%) brightness(.95); transform: scale(1.05); }
+    .mini-cell--tall { grid-row: span 2; aspect-ratio: auto; }
+    .mini-cell--tall img { height: 100%; }
+
+    /* ── Testimonials ── */
+    .testimonials-section { padding: 6rem 0; background: var(--bg); }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 6rem 0; background: var(--bg-2); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 2.5rem; }
+    .faq-item { background: var(--bg-2); }
+    .faq-item summary {
+      padding: 1.4rem 1.6rem; cursor: pointer;
+      font-size: .86rem; font-weight: 600; letter-spacing: .02em;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none; list-style: none; transition: color .2s;
+    }
+    .faq-item summary:hover { color: var(--violet); }
+    .faq-icon { font-size: 1.3rem; font-weight: 300; color: var(--violet); flex-shrink: 0; margin-left: 1rem; transition: transform .3s var(--ease); }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-body { padding: 0 1.6rem 1.4rem; font-size: .83rem; color: var(--text-2); line-height: 1.85; border-top: 1px solid var(--border); padding-top: 1rem; margin: 0 1.6rem 1.4rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: 1fr 1fr; }
+      .mini-cell--tall { grid-row: span 1; aspect-ratio: 4/3; }
+      .sbar-stat { padding: 0 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .sbar-sep { display: none; }
+      .stats-bar-inner { gap: 1.5rem; }
+      .sbar-stat { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- ═══ NAV ═══ -->
+  <header class="nav-wrap scrolled" id="navWrap" role="banner">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" class="nav-logo" aria-label="ARIK Produciendo — Inicio">
+        <span class="logo-first">ARIK</span>
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-last">PROD</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="index.html#musica" class="nav-link">Música</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="index.html#servicios" class="nav-link nav-link--has-dropdown active">
+            Servicios
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="servicios-dj.html" class="nav-dropdown-item"><span class="dd-icon">🎧</span> DJ</a>
+            <a href="servicios-productor.html" class="nav-dropdown-item"><span class="dd-icon">🎛</span> Productor</a>
+          </div>
+        </li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+      <a href="index.html#contacto" class="nav-cta btn-primary" data-hover>Reservar fecha</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog">
+      <ul role="list">
+        <li><a href="index.html#sobre-mi" class="mm-link">Sobre mí</a></li>
+        <li><a href="index.html#musica" class="mm-link">Música</a></li>
+        <li><a href="servicios-dj.html" class="mm-link">🎧 DJ</a></li>
+        <li><a href="servicios-productor.html" class="mm-link">🎛 Productor</a></li>
+        <li><a href="index.html#portfolio" class="mm-link">Portfolio</a></li>
+        <li><a href="index.html#contacto" class="mm-link">Contacto</a></li>
+        <li><a href="index.html#contacto" class="mm-link mm-cta">Reservar fecha →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero" aria-label="DJ para eventos">
+      <div class="page-hero-bg">
+        <img src="img/arik_show.png" alt="" class="page-hero-bg-img" />
+        <div class="page-hero-overlay"></div>
+      </div>
+      <div class="container page-hero-content">
+        <p class="page-hero-label">Servicios DJ</p>
+        <h1 class="page-hero-title">DJ para<br /><em>cada momento</em></h1>
+        <p class="page-hero-sub">Más de 200 eventos. Bodas, clubs, festivales y eventos privados en Barcelona y toda España. Sets con identidad propia y energía que no para.</p>
+        <div class="page-ctas">
+          <a href="index.html#contacto" class="btn-primary btn-lg" data-hover>Reservar fecha</a>
+          <a href="servicios-productor.html" class="btn-outline btn-lg" data-hover>Ver producción →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATS BAR ═══ -->
+    <div class="stats-bar" aria-label="Estadísticas">
+      <div class="container stats-bar-inner">
+        <div class="sbar-stat">
+          <span class="sbar-num"><em>+</em>200</span>
+          <span class="sbar-label">Eventos realizados</span>
+        </div>
+        <div class="sbar-sep" aria-hidden="true"></div>
+        <div class="sbar-stat">
+          <span class="sbar-num"><em>+</em>7</span>
+          <span class="sbar-label">Años de experiencia</span>
+        </div>
+        <div class="sbar-sep" aria-hidden="true"></div>
+        <div class="sbar-stat">
+          <span class="sbar-num">30<em>k</em></span>
+          <span class="sbar-label">Oyentes mensuales</span>
+        </div>
+        <div class="sbar-sep" aria-hidden="true"></div>
+        <div class="sbar-stat">
+          <span class="sbar-num">100<em>%</em></span>
+          <span class="sbar-label">Satisfacción</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SERVICIOS ═══ -->
+    <section style="padding: 6rem 0; background: var(--bg);" aria-label="Tipos de evento">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Tipos de evento</div>
+            <h2 class="section-title">¿Qué tipo<br />de <em>evento</em>?</h2>
+          </div>
+          <p class="section-desc">Cada ocasión tiene su propio sonido. Dime qué necesitas y construimos el set perfecto.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card js-reveal" data-delay="0">
+            <div class="sc-icon">🎉</div>
+            <div class="sc-num">01</div>
+            <h3 class="sc-title">Eventos Privados</h3>
+            <p class="sc-desc">Fiestas de empresa, cumpleaños, inauguraciones, after parties. Desde ambiente chill hasta full party mode. Me adapto a ti.</p>
+            <ul class="sc-features">
+              <li>Set 100% personalizado</li>
+              <li>Todos los géneros disponibles</li>
+              <li>Equipo de sonido propio opcional</li>
+              <li>Desde 2h hasta la madrugada</li>
+            </ul>
+            <a href="index.html#contacto" class="sc-cta">Consultar disponibilidad →</a>
+          </article>
+
+          <article class="service-card service-card--featured js-reveal" data-delay="0.1">
+            <div class="sc-badge">Más popular</div>
+            <div class="sc-icon">💍</div>
+            <div class="sc-num">02</div>
+            <h3 class="sc-title">Bodas &amp; Grandes Formatos</h3>
+            <p class="sc-desc">El día más importante merece la música perfecta. Coordino cóctel, cena y fiesta para que cada momento tenga su sonido exacto.</p>
+            <ul class="sc-features">
+              <li>Coordinación completa: cóctel → cena → fiesta</li>
+              <li>Reggaetón, comercial, clásicos y hits actuales</li>
+              <li>Reunión previa para personalizar cada bloque</li>
+              <li>Experiencia en bodas de 50 a +500 personas</li>
+            </ul>
+            <a href="index.html#contacto" class="sc-cta sc-cta--solid">Reservar fecha →</a>
+          </article>
+
+          <article class="service-card js-reveal" data-delay="0.2">
+            <div class="sc-icon">🕺</div>
+            <div class="sc-num">03</div>
+            <h3 class="sc-title">Clubs &amp; Festivales</h3>
+            <p class="sc-desc">Sets de 2 a 4 horas construidos para mover pistas. Trap y reggaetón con identidad propia. Para promotores que quieren algo diferente.</p>
+            <ul class="sc-features">
+              <li>Sets de 2h, 3h o 4h</li>
+              <li>Trap · Reggaetón · Urban · Drill</li>
+              <li>EPK disponible para booking</li>
+              <li>Rider técnico en PDF bajo petición</li>
+            </ul>
+            <a href="index.html#contacto" class="sc-cta">Booking profesional →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CÓMO FUNCIONA ═══ -->
+    <section class="process-section" aria-label="Cómo contratar">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// El proceso</div>
+            <h2 class="section-title">Cómo<br /><em>funciona</em></h2>
+          </div>
+          <p class="section-desc">Desde el primer mensaje hasta el último track. Sin complicaciones.</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step js-reveal" data-delay="0">
+            <span class="ps-icon">💬</span>
+            <div class="ps-num">01</div>
+            <h3 class="ps-title">Contacto</h3>
+            <p class="ps-desc">Cuéntame los detalles: fecha, lugar, tipo de evento y número de asistentes. Te respondo en menos de 24h con disponibilidad y presupuesto.</p>
+          </div>
+          <div class="process-step js-reveal" data-delay="0.1">
+            <span class="ps-icon">🎵</span>
+            <div class="ps-num">02</div>
+            <h3 class="ps-title">Planificación</h3>
+            <p class="ps-desc">Hacemos una reunión para hablar de tus gustos musicales, el ambiente que quieres y los momentos clave del evento. El set lo construimos juntos.</p>
+          </div>
+          <div class="process-step js-reveal" data-delay="0.2">
+            <span class="ps-icon">🎧</span>
+            <div class="ps-num">03</div>
+            <h3 class="ps-title">El evento</h3>
+            <p class="ps-desc">Llego con tiempo, monto el equipo y me encargo de todo. Tú solo disfruta. Adaptación en tiempo real al ambiente y la energía de la sala.</p>
+          </div>
+          <div class="process-step js-reveal" data-delay="0.3">
+            <span class="ps-icon">⭐</span>
+            <div class="ps-num">04</div>
+            <h3 class="ps-title">Resultado</h3>
+            <p class="ps-desc">Un evento que la gente recuerda. Con tu permiso, compartiré contenido en redes. Y si quedas satisfecho, hay descuento para el próximo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ MINI PORTFOLIO ═══ -->
+    <section class="mini-portfolio" aria-label="Momentos en directo">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// En directo</div>
+            <h2 class="section-title">Momentos<br /><em>reales</em></h2>
+          </div>
+          <p class="section-desc">Cada foto es un evento diferente. La energía siempre la misma.</p>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-cell mini-cell--tall js-reveal">
+            <img src="img/arik_show.png" alt="ARIK en directo" loading="lazy" />
+          </div>
+          <div class="mini-cell js-reveal" data-delay="0.1">
+            <img src="img/arik_gafas.jpeg" alt="ARIK DJ session" loading="lazy" />
+          </div>
+          <div class="mini-cell js-reveal" data-delay="0.2">
+            <img src="img/imagen_hangar.jpg" alt="Sesión Hangar" loading="lazy" />
+          </div>
+          <div class="mini-cell js-reveal" data-delay="0.1">
+            <img src="img/arik_hangar2.png" alt="ARIK en el Hangar" loading="lazy" />
+          </div>
+          <div class="mini-cell js-reveal" data-delay="0.2">
+            <img src="img/arik_show.png" alt="ARIK show" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIOS ═══ -->
+    <section class="testimonials-section" aria-label="Opiniones">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Opiniones</div>
+            <h2 class="section-title">Lo que dicen<br /><em>los clientes</em></h2>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <blockquote class="tcard js-reveal">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">"ARIK fue el DJ de nuestra boda y superó todas las expectativas. Leyó perfectamente el ambiente en cada momento: cóctel, cena y fiesta. Los invitados siguen hablando de lo increíble que estuvo."</p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--violet)" aria-hidden="true">MR</div>
+              <div>
+                <strong>Marc &amp; Raquel</strong>
+                <span>Boda · Junio 2024 · Barcelona</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tcard js-reveal" data-delay="0.1">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">"Contratamos a ARIK para nuestra fiesta de empresa y fue un éxito total. Profesional, puntual y con una capacidad única para mantener la energía durante horas. Lo repetiríamos sin dudarlo."</p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--teal)" aria-hidden="true">JL</div>
+              <div>
+                <strong>Jaume Lluis</strong>
+                <span>Director de RRHH · Evento corporativo</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tcard js-reveal" data-delay="0.2">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">"Lo tuvimos pinchando en nuestra apertura y la sala no paró. Mucha personalidad en los sets, sonido brutal y cero dramas con el equipo. Sin duda lo traemos para la próxima fecha."</p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--hot)" aria-hidden="true">NK</div>
+              <div>
+                <strong>Sala Nitro</strong>
+                <span>Promotor · Apertura de sala · 2024</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq-section" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// FAQ</div>
+            <h2 class="section-title">Preguntas<br /><em>frecuentes</em></h2>
+          </div>
+          <p class="section-desc">Si no encuentras tu respuesta, escríbeme directamente.</p>
+        </div>
+
+        <div class="faq-grid js-reveal">
+          <details class="faq-item">
+            <summary>¿Con cuánta antelación debo reservar? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Para bodas y grandes eventos, recomiendo reservar con 3-6 meses de antelación, especialmente en temporada alta (mayo-octubre). Para eventos más pequeños, 2-4 semanas suele ser suficiente.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Tienes equipo de sonido propio? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Sí, cuento con equipo propio para eventos de hasta ~150 personas. Para eventos más grandes, coordino con empresas de producción de confianza. Consúltame y te doy presupuesto cerrado.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo pedir canciones específicas? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Absolutamente. Antes del evento hablamos de tus canciones imprescindibles y las que prefieres evitar. El set se construye sobre esa base, y durante el evento me adapto en tiempo real.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Haces bodas fuera de Barcelona? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Sí, trabajo en toda España. Los gastos de desplazamiento y alojamiento (si es necesario pernoctar) se añaden al presupuesto. Cuéntame la ubicación y te doy un precio completo.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto dura un set estándar? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Depende del evento. Para bodas suelo hacer bloques (cóctel 2h + cena 1h + fiesta 3-4h). Para clubs y fiestas privadas, lo habitual es entre 2 y 4 horas. Sin problema si el evento se alarga.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué géneros tocas? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Mi especialidad es el urban: trap, reggaetón, drill y latin. Pero tengo experiencia con comercial, pop, R&amp;B, electrónica y clásicos de cualquier década. Lo que necesite tu evento, lo tengo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA FINAL ═══ -->
+    <section class="section-final-cta" aria-label="Reservar">
+      <div class="fca-bg" aria-hidden="true"></div>
+      <div class="container fca-inner">
+        <div class="fca-content js-reveal">
+          <p class="fca-eyebrow">¿Tienes una fecha en mente?</p>
+          <h2 class="fca-title">Hablemos.<br /><em>Sin rodeos.</em></h2>
+          <p class="fca-sub">Cuéntame los detalles del evento y te respondo en menos de 24h con disponibilidad y presupuesto.</p>
+          <div class="fca-ctas">
+            <a href="index.html#contacto" class="btn-primary btn-lg btn-glow" data-hover>Reservar ahora</a>
+            <a href="servicios-productor.html" class="btn-ghost btn-lg" data-hover>Ver producción →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo" aria-label="ARIK Produciendo — Inicio">
+          <span class="logo-first">ARIK</span><span class="logo-dot" aria-hidden="true"></span><span class="logo-last">PROD</span>
+        </a>
+        <p>DJ &amp; Music Producer · Barcelona</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="index.html#sobre-mi">Sobre mí</a>
+        <a href="index.html#musica">Música</a>
+        <a href="servicios-dj.html">DJ</a>
+        <a href="servicios-productor.html">Productor</a>
+        <a href="index.html#contacto">Booking</a>
+      </nav>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/_dj_arik_?igsh=aWRqODB4MThjZ2Ez" class="fs-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://open.spotify.com/intl-es/artist/3LFTmimZlCcv4qIYv2TsgH?si=NKFXZtasRcCCE9m0-NVcKQ" class="fs-link" aria-label="Spotify" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+        <a href="https://youtube.com/@arik_produciendo" class="fs-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://www.tiktok.com/@_arik_produciendo_" class="fs-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.78 1.52V6.8a4.85 4.85 0 01-1.01-.11z"/></svg></a>
+      </div>
+      <div class="footer-copy"><span>© 2025 ARIK Produciendo · Todos los derechos reservados</span></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

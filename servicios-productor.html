@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ARIK Produciendo — Producción musical: beats exclusivos, singles completos, mixing y mastering. Música con identidad propia lista para plataformas." />
+  <title>Productor — ARIK Produciendo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Hero ── */
+    .page-hero {
+      min-height: 60vh; display: flex; align-items: center;
+      padding-top: var(--nav-h); position: relative; overflow: hidden;
+    }
+    .page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .page-hero-bg-img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.3) saturate(.5);
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(6,6,8,.97) 45%, rgba(6,6,8,.35) 100%),
+                  linear-gradient(to top, rgba(6,6,8,.85) 0%, transparent 50%);
+    }
+    .page-hero-content { position: relative; z-index: 1; padding: 5rem 0; }
+    .page-hero-label { font-size: .68rem; letter-spacing: .25em; color: var(--teal); text-transform: uppercase; font-weight: 600; display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+    .page-hero-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--teal); }
+    .page-hero-title { font-family: var(--font-d); font-size: clamp(3.5rem, 11vw, 9rem); line-height: .9; letter-spacing: .02em; }
+    .page-hero-title em { font-style: normal; color: var(--teal); }
+    .page-hero-sub { color: var(--text-2); font-size: 1rem; max-width: 460px; margin: 1.5rem 0 2.5rem; line-height: 1.8; }
+    .page-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── Stats bar ── */
+    .stats-bar { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.2rem 0; }
+    .stats-bar-inner { display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap; }
+    .sbar-stat { text-align: center; padding: 0 3rem; }
+    .sbar-num { font-family: var(--font-d); font-size: 3rem; line-height: 1; color: var(--text); display: block; }
+    .sbar-num em { font-style: normal; color: var(--teal); }
+    .sbar-label { font-size: .62rem; letter-spacing: .2em; color: var(--text-3); text-transform: uppercase; margin-top: .3rem; display: block; }
+    .sbar-sep { width: 1px; height: 50px; background: var(--border-2); flex-shrink: 0; }
+
+    /* ── Process ── */
+    .process-section { padding: 6rem 0; background: var(--bg-2); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 3rem; }
+    .process-step { background: var(--bg-2); padding: 2.5rem 1.8rem; position: relative; overflow: hidden; transition: background .3s; }
+    .process-step:hover { background: var(--bg-3); }
+    .ps-num { font-family: var(--font-d); font-size: 6rem; line-height: 1; color: rgba(255,255,255,.04); position: absolute; bottom: .5rem; right: 1rem; pointer-events: none; }
+    .ps-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+    .ps-title { font-family: var(--font-d); font-size: 1.3rem; letter-spacing: .03em; margin-bottom: .8rem; line-height: 1.1; }
+    .ps-desc { font-size: .82rem; color: var(--text-2); line-height: 1.8; }
+
+    /* ── Releases ── */
+    .releases-section { padding: 6rem 0; background: var(--bg-3); }
+
+    /* ── Testimonials ── */
+    .testimonials-section { padding: 6rem 0; background: var(--bg); }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 6rem 0; background: var(--bg-2); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 2.5rem; }
+    .faq-item { background: var(--bg-2); }
+    .faq-item summary {
+      padding: 1.4rem 1.6rem; cursor: pointer;
+      font-size: .86rem; font-weight: 600; letter-spacing: .02em;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none; list-style: none; transition: color .2s;
+    }
+    .faq-item summary:hover { color: var(--teal); }
+    .faq-icon { font-size: 1.3rem; font-weight: 300; color: var(--teal); flex-shrink: 0; margin-left: 1rem; transition: transform .3s var(--ease); }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-body { padding: 0 1.6rem 1.4rem; font-size: .83rem; color: var(--text-2); line-height: 1.85; border-top: 1px solid var(--border); padding-top: 1rem; margin: 0 1.6rem 1.4rem; }
+
+    /* ── Genre pills ── */
+    .genre-strip { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.5rem; }
+    .genre-pill {
+      padding: .45rem 1.1rem; border: 1px solid var(--border-2);
+      border-radius: 2rem; font-size: .72rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--text-2); font-weight: 600;
+      transition: border-color .2s, color .2s;
+    }
+    .genre-pill:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .sbar-stat { padding: 0 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .sbar-sep { display: none; }
+      .stats-bar-inner { gap: 1.5rem; }
+      .sbar-stat { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- ═══ NAV ═══ -->
+  <header class="nav-wrap scrolled" id="navWrap" role="banner">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" class="nav-logo" aria-label="ARIK Produciendo — Inicio">
+        <span class="logo-first">ARIK</span>
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-last">PROD</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="index.html#musica" class="nav-link">Música</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="index.html#servicios" class="nav-link nav-link--has-dropdown active">
+            Servicios
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+          </a>
+          <div class="nav-dropdown">
+            <a href="servicios-dj.html" class="nav-dropdown-item"><span class="dd-icon">🎧</span> DJ</a>
+            <a href="servicios-productor.html" class="nav-dropdown-item"><span class="dd-icon">🎛</span> Productor</a>
+          </div>
+        </li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+      <a href="index.html#contacto" class="nav-cta btn-primary" data-hover>Pedir presupuesto</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Menú de navegación">
+      <ul role="list">
+        <li><a href="index.html#sobre-mi" class="mm-link">Sobre mí</a></li>
+        <li><a href="index.html#musica" class="mm-link">Música</a></li>
+        <li><a href="servicios-dj.html" class="mm-link">🎧 DJ</a></li>
+        <li><a href="servicios-productor.html" class="mm-link">🎛 Productor</a></li>
+        <li><a href="index.html#portfolio" class="mm-link">Portfolio</a></li>
+        <li><a href="index.html#contacto" class="mm-link">Contacto</a></li>
+        <li><a href="index.html#contacto" class="mm-link mm-cta">Pedir presupuesto →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero" aria-label="Producción musical">
+      <div class="page-hero-bg">
+        <img src="img/arik_gafas.jpeg" alt="" class="page-hero-bg-img" />
+        <div class="page-hero-overlay"></div>
+      </div>
+      <div class="container page-hero-content">
+        <p class="page-hero-label">Producción Musical</p>
+        <h1 class="page-hero-title">Música con<br /><em>identidad</em></h1>
+        <p class="page-hero-sub">Beats exclusivos, producciones completas, mixing y mastering. Cada proyecto se construye desde cero con intención y con sonido propio.</p>
+        <div class="page-ctas">
+          <a href="index.html#contacto" class="btn-primary btn-lg" data-hover>Pedir presupuesto</a>
+          <a href="servicios-dj.html" class="btn-outline btn-lg" data-hover>Ver servicios DJ →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATS BAR ═══ -->
+    <div class="stats-bar" aria-label="Estadísticas de producción">
+      <div class="container stats-bar-inner">
+        <div class="sbar-stat">
+          <span class="sbar-num"><em>+</em>20</span>
+          <span class="sbar-label">Releases publicados</span>
+        </div>
+        <div class="sbar-sep" aria-hidden="true"></div>
+        <div class="sbar-stat">
+          <span class="sbar-num"><em>+</em>10</span>
+          <span class="sbar-label">Artistas colaboradores</span>
+        </div>
+        <div class="sbar-sep" aria-hidden="true"></div>
+        <div class="sbar-stat">
+          <span class="sbar-num">30<em>k</em></span>
+          <span class="sbar-label">Oyentes mensuales</span>
+        </div>
+        <div class="sbar-sep" aria-hidden="true"></div>
+        <div class="sbar-stat">
+          <span class="sbar-num">100<em>%</em></span>
+          <span class="sbar-label">Satisfacción</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SERVICIOS PRODUCCIÓN ═══ -->
+    <section style="padding: 6rem 0; background: var(--bg);" aria-label="Servicios de producción">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// ¿Qué necesitas?</div>
+            <h2 class="section-title">Servicios de<br /><em>producción</em></h2>
+          </div>
+          <p class="section-desc">Desde un beat hasta la producción completa de un single. Dime qué tienes en mente y lo construimos juntos.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card js-reveal" data-delay="0" aria-label="Beats exclusivos">
+            <div class="sc-icon">🎵</div>
+            <div class="sc-num">01</div>
+            <h3 class="sc-title">Beats Exclusivos</h3>
+            <p class="sc-desc">Instrumentales creados desde cero para tu proyecto. Trap, reggaetón, drill y urban. 100% exclusivos — no se venden a nadie más.</p>
+            <ul class="sc-features">
+              <li>Género a elegir: Trap · Reggaetón · Drill</li>
+              <li>Entrega en WAV + stems separados</li>
+              <li>Derechos de uso completos</li>
+              <li>Revisiones incluidas</li>
+            </ul>
+            <a href="index.html#contacto" class="sc-cta">Pedir beat →</a>
+          </article>
+
+          <article class="service-card service-card--featured js-reveal" data-delay="0.1" aria-label="Producción completa de single">
+            <div class="sc-badge">Más pedido</div>
+            <div class="sc-icon">🎤</div>
+            <div class="sc-num">02</div>
+            <h3 class="sc-title">Single Completo</h3>
+            <p class="sc-desc">Beat + grabación + mezcla + máster. Todo en un solo servicio. Listo para subir a Spotify, Apple Music y el resto de plataformas.</p>
+            <ul class="sc-features">
+              <li>Producción musical desde cero</li>
+              <li>Sesión de grabación incluida</li>
+              <li>Mixing &amp; Mastering profesional</li>
+              <li>Distribución digital asesorada</li>
+            </ul>
+            <a href="index.html#contacto" class="sc-cta sc-cta--solid">Empezar proyecto →</a>
+          </article>
+
+          <article class="service-card js-reveal" data-delay="0.2" aria-label="Mixing y Mastering">
+            <div class="sc-icon">🎚</div>
+            <div class="sc-num">03</div>
+            <h3 class="sc-title">Mixing &amp; Mastering</h3>
+            <p class="sc-desc">¿Ya tienes el tema grabado? Lo mezclo y mastero para que suene de nivel profesional en cualquier plataforma o sistema de sonido.</p>
+            <ul class="sc-features">
+              <li>Mezcla profesional (stems por separado)</li>
+              <li>Máster para streaming y CD</li>
+              <li>Entrega en 48–72h</li>
+              <li>Una revisión incluida</li>
+            </ul>
+            <a href="index.html#contacto" class="sc-cta">Enviar proyecto →</a>
+          </article>
+
+        </div>
+
+        <!-- Genre pills -->
+        <div class="js-reveal" style="margin-top:3.5rem;">
+          <p style="font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text-3); margin-bottom:1rem; font-weight:600;">Géneros que produzco</p>
+          <div class="genre-strip">
+            <span class="genre-pill">Trap</span>
+            <span class="genre-pill">Reggaetón</span>
+            <span class="genre-pill">Drill</span>
+            <span class="genre-pill">Latin Urban</span>
+            <span class="genre-pill">R&amp;B</span>
+            <span class="genre-pill">Afrobeats</span>
+            <span class="genre-pill">Pop Urban</span>
+            <span class="genre-pill">Dembow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CÓMO TRABAJAMOS ═══ -->
+    <section class="process-section" aria-label="Proceso de trabajo">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// El proceso</div>
+            <h2 class="section-title">Cómo<br /><em>trabajamos</em></h2>
+          </div>
+          <p class="section-desc">Un proceso claro para que el resultado sea exactamente lo que tienes en mente — o mejor.</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step js-reveal" data-delay="0">
+            <span class="ps-icon">💬</span>
+            <div class="ps-num">01</div>
+            <h3 class="ps-title">Brief</h3>
+            <p class="ps-desc">Me cuentas tu idea: referencias, feeling, letra (si tienes), género y plazo. Con esa info ya puedo empezar a construir el sonido.</p>
+          </div>
+          <div class="process-step js-reveal" data-delay="0.1">
+            <span class="ps-icon">🎛</span>
+            <div class="ps-num">02</div>
+            <h3 class="ps-title">Producción</h3>
+            <p class="ps-desc">Trabajo el beat y la estructura del tema. Te mando una primera versión en 48–72h. A partir de ahí afinamos juntos hasta que suene exacto.</p>
+          </div>
+          <div class="process-step js-reveal" data-delay="0.2">
+            <span class="ps-icon">🔁</span>
+            <div class="ps-num">03</div>
+            <h3 class="ps-title">Revisión</h3>
+            <p class="ps-desc">Tienes rondas de revisión incluidas. Cambios de estructura, instrumentos, energía o BPM — lo que necesites para que el tema sea tuyo de verdad.</p>
+          </div>
+          <div class="process-step js-reveal" data-delay="0.3">
+            <span class="ps-icon">📦</span>
+            <div class="ps-num">04</div>
+            <h3 class="ps-title">Entrega</h3>
+            <p class="ps-desc">Te mando el WAV máster listo para subir a plataformas, más los stems si los necesitas. Asesoramiento incluido sobre distribución digital.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RELEASES ═══ -->
+    <section class="releases-section" aria-label="Discografía">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Discografía</div>
+            <h2 class="section-title">Releases<br /><em>recientes</em></h2>
+          </div>
+          <p class="section-desc">Producciones publicadas en plataformas. Escúchalas y hazte una idea del sonido.</p>
+        </div>
+        <div class="releases-grid js-reveal">
+          <div class="release-card">
+            <div class="rc-cover"><img src="img/cover_unico_cover.jpeg" alt="El Único" loading="lazy"></div>
+            <div class="rc-info">
+              <strong>El Único</strong>
+              <span>Jasy S, Arik</span>
+              <a href="https://open.spotify.com/intl-es/track/4cwE2opmBvXOEypXHEM2oa?si=cd37160c2b8b4e5e" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+            </div>
+          </div>
+          <div class="release-card">
+            <div class="rc-cover"><img src="img/cover_bad_bitch.png" alt="Bad Bitch" loading="lazy"></div>
+            <div class="rc-info">
+              <strong>Bad Bitch</strong>
+              <span>Jasy S, BBY KILO, Arik Produciendo</span>
+              <a href="https://open.spotify.com/track/0ZxH79YAmstpstZoPoQwcf?si=23a044be020c4a86" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+            </div>
+          </div>
+          <div class="release-card">
+            <div class="rc-cover"><img src="img/cover_gatita_maliant.png" alt="Gatita Maliant" loading="lazy"></div>
+            <div class="rc-info">
+              <strong>Gatita Maliant</strong>
+              <span>Real Dimas, Arik Produciendo</span>
+              <a href="https://open.spotify.com/intl-es/track/2AUBAGsoqEGjFlq7k3sSbX?si=cf3fe3be6739412d" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+            </div>
+          </div>
+          <div class="release-card">
+            <div class="rc-cover"><img src="img/cpver_conmigo.jpeg" alt="Conmigo" loading="lazy"></div>
+            <div class="rc-info">
+              <strong>Conmigo</strong>
+              <span>Real Dimas, Arik Produciendo</span>
+              <a href="https://open.spotify.com/intl-es/track/1mY8fXeKdlKokzacHtiZ3x?si=67bc399490ac4d6f" class="rc-listen" target="_blank" rel="noopener noreferrer">Escuchar →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIOS ═══ -->
+    <section class="testimonials-section" aria-label="Opiniones de artistas">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// Artistas</div>
+            <h2 class="section-title">Lo que dicen<br /><em>los artistas</em></h2>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <blockquote class="tcard js-reveal">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">"Trabajar con ARIK fue diferente desde el primer momento. Entendió exactamente lo que quería sin que tuviera que explicarlo mucho. El beat de 'El Único' lo clavó a la primera. Sin duda repetiría."</p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--teal)" aria-hidden="true">JS</div>
+              <div>
+                <strong>Jasy S</strong>
+                <span>Artista · El Único · Bad Bitch</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tcard js-reveal" data-delay="0.1">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">"'Gatita Maliant' y 'Conmigo' son de mis temas favoritos que he sacado. ARIK tiene un sonido propio que se nota en cada producción. El proceso fue limpio, rápido y sin dramas. 10/10."</p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--violet)" aria-hidden="true">RD</div>
+              <div>
+                <strong>Real Dimas</strong>
+                <span>Artista · Gatita Maliant · Conmigo</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tcard js-reveal" data-delay="0.2">
+            <div class="tcard-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="tcard-quote">"El mixing que hizo con mi EP fue una pasada. Lo mandé con mezcla casera y lo devolvió listo para Spotify. Se nota que sabe de lo que habla y que le importa que el resultado mole de verdad."</p>
+            <footer class="tcard-author">
+              <div class="tca-avatar" style="--av-color:var(--hot)" aria-hidden="true">BK</div>
+              <div>
+                <strong>BBY KILO</strong>
+                <span>Artista · Mixing &amp; Mastering</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq-section" aria-label="Preguntas frecuentes sobre producción">
+      <div class="container">
+        <div class="section-header js-reveal">
+          <div>
+            <div class="section-label">// FAQ</div>
+            <h2 class="section-title">Preguntas<br /><em>frecuentes</em></h2>
+          </div>
+          <p class="section-desc">¿Tienes dudas? Aquí están las más habituales. Si no encuentras la tuya, escríbeme.</p>
+        </div>
+
+        <div class="faq-grid js-reveal">
+          <details class="faq-item">
+            <summary>¿Los beats son realmente exclusivos? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Sí, 100%. Cuando produces un beat exclusivo conmigo, ese beat no se vende ni licencia a ningún otro artista. Es tuyo. Recibirás los archivos y los derechos de uso completos por escrito.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto tarda en estar listo un tema? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Depende del servicio. Un beat exclusivo suele estar listo en 3–5 días hábiles. Un single completo (producción + grabación + mezcla + máster) tarda entre 1 y 3 semanas según la complejidad.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Necesito tener la letra escrita ya? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">No es obligatorio. Puedo trabajar a partir de una idea, un feeling o referencias de otros artistas. Si tienes letra, genial — si no, construimos el instrumental y la desarrollas encima.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué me entregáis al final? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Para un single completo: WAV máster listo para plataformas, stems separados y el proyecto del DAW si lo solicitas. Para mixing/mastering: WAV máster + versión instrumental si la tienes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo grabar aunque no esté en Barcelona? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Sí. Para beats, mixing y mastering todo se puede hacer de forma remota: me mandas los archivos y te devuelvo el resultado. Para grabación en estudio, eso sí requiere venir a Barcelona.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Me ayudas a subir el tema a Spotify? <span class="faq-icon">+</span></summary>
+            <p class="faq-body">Sí, doy asesoramiento sobre distribución digital. Te recomiendo la plataforma más adecuada (DistroKid, TuneCore, etc.) y te explico el proceso para que tu música llegue a todas las plataformas.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA FINAL ═══ -->
+    <section class="section-final-cta" aria-label="Empezar un proyecto">
+      <div class="fca-bg" aria-hidden="true"></div>
+      <div class="container fca-inner">
+        <div class="fca-content js-reveal">
+          <p class="fca-eyebrow">¿Tienes un proyecto en mente?</p>
+          <h2 class="fca-title">Cuéntame<br /><em>tu idea.</em></h2>
+          <p class="fca-sub">Beats, colaboraciones o producción completa. Te respondo en menos de 24h con disponibilidad y presupuesto.</p>
+          <div class="fca-ctas">
+            <a href="index.html#contacto" class="btn-primary btn-lg btn-glow" data-hover>Empezar proyecto</a>
+            <a href="servicios-dj.html" class="btn-ghost btn-lg" data-hover>Ver servicios DJ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo" aria-label="ARIK Produciendo — Inicio">
+          <span class="logo-first">ARIK</span><span class="logo-dot" aria-hidden="true"></span><span class="logo-last">PROD</span>
+        </a>
+        <p>DJ &amp; Music Producer · Barcelona</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="index.html#sobre-mi">Sobre mí</a>
+        <a href="index.html#musica">Música</a>
+        <a href="servicios-dj.html">DJ</a>
+        <a href="servicios-productor.html">Productor</a>
+        <a href="index.html#contacto">Booking</a>
+      </nav>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/_dj_arik_?igsh=aWRqODB4MThjZ2Ez" class="fs-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://open.spotify.com/intl-es/artist/3LFTmimZlCcv4qIYv2TsgH?si=NKFXZtasRcCCE9m0-NVcKQ" class="fs-link" aria-label="Spotify" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </a>
+        <a href="https://youtube.com/@arik_produciendo" class="fs-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@_arik_produciendo_" class="fs-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.78 1.52V6.8a4.85 4.85 0 01-1.01-.11z"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy"><span>© 2025 ARIK Produciendo · Todos los derechos reservados</span></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
