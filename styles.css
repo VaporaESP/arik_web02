@@ -1171,6 +1171,8 @@ body.c-click .cursor {
 @media (max-width: 640px) {
   :root { --nav-h: 60px; }
 
+  .hero-title  { font-size: clamp(2.4rem, 11vw, 5rem); }
+
   .hero-ctas   { flex-direction: column; align-items: flex-start; }
   .hero-stats  { gap: 1.5rem; }
   .hstat-num   { font-size: 2rem; }
