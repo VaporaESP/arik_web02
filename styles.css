@@ -433,9 +433,7 @@ body.c-click .cursor {
   opacity: 0; /* GSAP anima */
 }
 .ht-arik {
-  background: linear-gradient(135deg, #fff 0%, #c8d4f0 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff;
 }
 .ht-dj { color: var(--violet); }
 .ht-accent {
