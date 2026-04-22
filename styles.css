@@ -454,6 +454,11 @@ body.c-click .cursor {
 }
 .br-desktop { display: none; }
 @media (min-width: 768px) { .br-desktop { display: block; } }
+.hero-tagline {
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); font-weight: 500;
+  margin-bottom: 1.8rem;
+}
 
 .hero-ctas { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; opacity: 0; }
 
