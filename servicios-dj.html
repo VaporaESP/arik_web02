@@ -81,6 +81,38 @@
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-body { padding: 0 1.6rem 1.4rem; font-size: .83rem; color: var(--text-2); line-height: 1.85; border-top: 1px solid var(--border); padding-top: 1rem; margin: 0 1.6rem 1.4rem; }
 
+    /* ── DJ Pack ── */
+    .dj-pack-wrap { margin-top: 3rem; display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+    .dj-pack-card {
+      background: var(--bg-2);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .dj-pack-main {
+      padding: 3rem 3rem 3rem 3rem;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .dj-pack-label { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--violet); font-weight: 600; }
+    .dj-pack-title { font-family: var(--font-d); font-size: clamp(2rem, 5vw, 3.2rem); line-height: .95; letter-spacing: .02em; }
+    .dj-pack-title em { font-style: normal; color: var(--violet); }
+    .dj-pack-desc { font-size: .9rem; color: var(--text-2); line-height: 1.8; max-width: 420px; }
+    .dj-pack-features { padding: 3rem; display: flex; flex-direction: column; gap: 1.8rem; }
+    .dpf-item { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .dpf-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+    .dpf-item strong { display: block; font-size: .88rem; font-weight: 600; margin-bottom: .3rem; }
+    .dpf-item p { font-size: .8rem; color: var(--text-2); line-height: 1.7; margin: 0; }
+    .dj-pack-types { background: var(--bg-3); padding: 1.8rem 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .dpt-label { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-3); font-weight: 600; white-space: nowrap; }
+    .dpt-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .dpt-tags span {
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-2); font-weight: 600;
+      border: 1px solid var(--border-2); border-radius: 2rem; padding: .3rem .85rem;
+      transition: border-color .2s, color .2s;
+    }
+    .dpt-tags span:hover { border-color: var(--violet); color: var(--violet); }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .process-steps { grid-template-columns: 1fr 1fr; }
@@ -88,6 +120,10 @@
       .mini-grid { grid-template-columns: 1fr 1fr; }
       .mini-cell--tall { grid-row: span 1; aspect-ratio: 4/3; }
       .sbar-stat { padding: 0 1.5rem; }
+      .dj-pack-card { grid-template-columns: 1fr; }
+      .dj-pack-main { border-right: none; border-bottom: 1px solid var(--border); padding: 2.5rem 2rem; }
+      .dj-pack-features { padding: 2.5rem 2rem; }
+      .dj-pack-types { padding: 1.5rem 2rem; }
     }
     @media (max-width: 640px) {
       .process-steps { grid-template-columns: 1fr; }
@@ -190,60 +226,73 @@
       </div>
     </div>
 
-    <!-- ═══ SERVICIOS ═══ -->
-    <section style="padding: 6rem 0; background: var(--bg);" aria-label="Tipos de evento">
+    <!-- ═══ PACK DJ ═══ -->
+    <section style="padding: 6rem 0; background: var(--bg);" aria-label="Contratar DJ">
       <div class="container">
         <div class="section-header js-reveal">
           <div>
-            <div class="section-label">// Tipos de evento</div>
-            <h2 class="section-title">¿Qué tipo<br />de <em>evento</em>?</h2>
+            <div class="section-label">// Contratación</div>
+            <h2 class="section-title">Un solo pack,<br /><em>mil eventos</em></h2>
           </div>
-          <p class="section-desc">Cada ocasión tiene su propio sonido. Dime qué necesitas y construimos el set perfecto.</p>
+          <p class="section-desc">Sin tarifas fijas ni paquetes rígidos. Me adapto a tu evento, tu espacio y lo que necesites. Cuéntame y hacemos números juntos.</p>
         </div>
 
-        <div class="services-grid">
-          <article class="service-card js-reveal" data-delay="0">
-            <div class="sc-icon">🎉</div>
-            <div class="sc-num">01</div>
-            <h3 class="sc-title">Eventos Privados</h3>
-            <p class="sc-desc">Fiestas de empresa, cumpleaños, inauguraciones, after parties. Desde ambiente chill hasta full party mode. Me adapto a ti.</p>
-            <ul class="sc-features">
-              <li>Set 100% personalizado</li>
-              <li>Todos los géneros disponibles</li>
-              <li>Equipo de sonido propio opcional</li>
-              <li>Desde 2h hasta la madrugada</li>
-            </ul>
-            <a href="index.html#contacto" class="sc-cta">Consultar disponibilidad →</a>
-          </article>
+        <div class="dj-pack-wrap js-reveal">
+          <div class="dj-pack-card">
+            <div class="dj-pack-main">
+              <div class="dj-pack-label">// Pack DJ</div>
+              <h3 class="dj-pack-title">Contrátame para<br /><em>tu fiesta</em></h3>
+              <p class="dj-pack-desc">
+                Da igual si es una boda, una fiesta privada, un club, una corporativa o un festival. Me adapto al formato, al horario y al ambiente que quieres crear. El presupuesto se cierra según las condiciones del evento.
+              </p>
+              <a href="contacto.html" target="_blank" rel="noopener" class="btn-primary btn-lg" data-hover>Consultar disponibilidad →</a>
+            </div>
 
-          <article class="service-card service-card--featured js-reveal" data-delay="0.1">
-            <div class="sc-badge">Más popular</div>
-            <div class="sc-icon">💍</div>
-            <div class="sc-num">02</div>
-            <h3 class="sc-title">Bodas &amp; Grandes Formatos</h3>
-            <p class="sc-desc">El día más importante merece la música perfecta. Coordino cóctel, cena y fiesta para que cada momento tenga su sonido exacto.</p>
-            <ul class="sc-features">
-              <li>Coordinación completa: cóctel → cena → fiesta</li>
-              <li>Reggaetón, comercial, clásicos y hits actuales</li>
-              <li>Reunión previa para personalizar cada bloque</li>
-              <li>Experiencia en bodas de 50 a +500 personas</li>
-            </ul>
-            <a href="index.html#contacto" class="sc-cta sc-cta--solid">Reservar fecha →</a>
-          </article>
+            <div class="dj-pack-features">
+              <div class="dpf-item">
+                <span class="dpf-icon">🎵</span>
+                <div>
+                  <strong>Set 100% personalizado</strong>
+                  <p>Hablamos antes del evento para conocer tus gustos, canciones clave y el ambiente que buscas.</p>
+                </div>
+              </div>
+              <div class="dpf-item">
+                <span class="dpf-icon">🔊</span>
+                <div>
+                  <strong>Equipo de sonido disponible</strong>
+                  <p>Si el espacio no tiene equipo propio, puedo aportarlo. Consulta disponibilidad según aforo.</p>
+                </div>
+              </div>
+              <div class="dpf-item">
+                <span class="dpf-icon">📍</span>
+                <div>
+                  <strong>Toda España</strong>
+                  <p>Trabajo en Barcelona y desplazamientos a cualquier punto de España. Presupuesto cerrado con todo incluido.</p>
+                </div>
+              </div>
+              <div class="dpf-item">
+                <span class="dpf-icon">⏱</span>
+                <div>
+                  <strong>Horario flexible</strong>
+                  <p>Desde 2 horas hasta la madrugada. Me ajusto a la duración y estructura de tu evento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <article class="service-card js-reveal" data-delay="0.2">
-            <div class="sc-icon">🕺</div>
-            <div class="sc-num">03</div>
-            <h3 class="sc-title">Clubs &amp; Festivales</h3>
-            <p class="sc-desc">Sets de 2 a 4 horas construidos para mover pistas. Trap y reggaetón con identidad propia. Para promotores que quieren algo diferente.</p>
-            <ul class="sc-features">
-              <li>Sets de 2h, 3h o 4h</li>
-              <li>Trap · Reggaetón · Urban · Drill</li>
-              <li>EPK disponible para booking</li>
-              <li>Rider técnico en PDF bajo petición</li>
-            </ul>
-            <a href="index.html#contacto" class="sc-cta">Booking profesional →</a>
-          </article>
+          <div class="dj-pack-types">
+            <p class="dpt-label">Tipos de evento</p>
+            <div class="dpt-tags">
+              <span>Bodas</span>
+              <span>Fiestas privadas</span>
+              <span>Eventos corporativos</span>
+              <span>Clubs</span>
+              <span>Festivales</span>
+              <span>Inauguraciones</span>
+              <span>After parties</span>
+              <span>Cumpleaños</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
