@@ -621,65 +621,68 @@
           </p>
         </div>
 
-        <div class="services-grid js-reveal">
+        <div class="services-split js-reveal">
 
-          <!-- Card DJ -->
-          <article class="service-card service-card--big js-reveal" data-delay="0" aria-label="Servicios DJ">
-            <div class="sc-icon" aria-hidden="true">🎧</div>
-            <div class="sc-num" aria-hidden="true">01</div>
-            <h3 class="sc-title">DJ</h3>
-            <p class="sc-desc">
-              Eventos privados, bodas, clubs y festivales. Sets construidos para cada momento, con identidad propia y energía que no para.
-            </p>
-            <ul class="sc-features" aria-label="Qué incluye">
-              <li>Eventos privados y corporativos</li>
-              <li>Bodas y grandes formatos</li>
-              <li>Clubs &amp; Festivales</li>
-              <li>Trap · Reggaetón · Comercial</li>
-            </ul>
-            <a href="servicios-dj.html" class="sc-cta">Ver servicios DJ →</a>
-          </article>
+          <!-- Imagen izquierda (cambia con hover) -->
+          <div class="svc-img-wrap" aria-hidden="true">
+            <img src="img/arik_show.png"        class="svc-bg-img active" data-svc="dj"       alt="" />
+            <img src="img/arik_gafas.jpeg"      class="svc-bg-img"       data-svc="producer"  alt="" />
+            <img src="img/imagen_hangar.jpg"    class="svc-bg-img"       data-svc="booking"   alt="" />
+            <div class="svc-img-overlay"></div>
+          </div>
 
-          <!-- Card Productor -->
-          <article class="service-card service-card--big service-card--featured js-reveal" data-delay="0.15" aria-label="Servicios Producción">
-            <div class="sc-badge">Nuevo</div>
-            <div class="sc-icon" aria-hidden="true">🎛</div>
-            <div class="sc-num" aria-hidden="true">02</div>
-            <h3 class="sc-title">Productor</h3>
-            <p class="sc-desc">
-              Beats exclusivos, mixing, mastering y colaboraciones artísticas. Música con identidad propia, lista para plataformas.
-            </p>
-            <ul class="sc-features" aria-label="Qué incluye">
-              <li>Beats exclusivos (Trap / Reggaetón)</li>
-              <li>Mixing &amp; Mastering profesional</li>
-              <li>Colaboraciones con artistas</li>
-              <li>Producción completa de single</li>
-            </ul>
-            <a href="servicios-productor.html" class="sc-cta sc-cta--solid">Ver servicios producción →</a>
-          </article>
+          <!-- Lista derecha -->
+          <ul class="svc-list" role="list">
 
-          <!-- Card Booking -->
-          <article class="service-card js-reveal" data-delay="0.3" aria-label="Booking y colaboraciones">
-            <div class="sc-icon" aria-hidden="true">📩</div>
-            <div class="sc-num" aria-hidden="true">03</div>
-            <h3 class="sc-title">Booking</h3>
-            <p class="sc-desc">
-              Tienes un proyecto, un evento o una idea. Cuéntamelo sin compromiso y buscamos la mejor forma de colaborar.
-            </p>
-            <ul class="sc-features" aria-label="Qué incluye">
-              <li>Respuesta en menos de 24h</li>
-              <li>Presupuesto sin compromiso</li>
-              <li>Disponibilidad en toda España</li>
-              <li>Proyectos a medida</li>
-            </ul>
-            <a href="#contacto" class="sc-cta">Contactar →</a>
-          </article>
+            <li class="svc-item active" data-svc="dj">
+              <div class="svc-item-inner">
+                <div class="svc-meta">
+                  <span class="svc-num">01</span>
+                  <h3 class="svc-title">DJ</h3>
+                </div>
+                <div class="svc-body"><div>
+                  <p class="svc-desc">Eventos privados, bodas, clubs y festivales. Sets con identidad propia y energía que no para.</p>
+                  <ul class="svc-tags">
+                    <li>Eventos privados</li><li>Bodas</li><li>Clubs &amp; Festivales</li><li>Trap · Reggaetón</li>
+                  </ul>
+                  <a href="servicios-dj.html" class="svc-link">Ver servicios DJ →</a>
+                </div></div>
+              </div>
+            </li>
 
-        </div>
+            <li class="svc-item" data-svc="producer">
+              <div class="svc-item-inner">
+                <div class="svc-meta">
+                  <span class="svc-num">02</span>
+                  <h3 class="svc-title">Productor</h3>
+                </div>
+                <div class="svc-body"><div>
+                  <p class="svc-desc">Beats exclusivos, mixing, mastering y producción completa. Música lista para plataformas.</p>
+                  <ul class="svc-tags">
+                    <li>Beats exclusivos</li><li>Single completo</li><li>Mixing &amp; Mastering</li><li>Distribución digital</li>
+                  </ul>
+                  <a href="servicios-productor.html" class="svc-link">Ver servicios producción →</a>
+                </div></div>
+              </div>
+            </li>
 
-        <div class="services-cta js-reveal">
-          <p>¿Tienes un proyecto diferente? Hablamos y lo adaptamos.</p>
-          <a href="#contacto" class="btn-primary btn-lg" data-hover>Consultar sin compromiso</a>
+            <li class="svc-item" data-svc="booking">
+              <div class="svc-item-inner">
+                <div class="svc-meta">
+                  <span class="svc-num">03</span>
+                  <h3 class="svc-title">Booking</h3>
+                </div>
+                <div class="svc-body"><div>
+                  <p class="svc-desc">¿Tienes un proyecto o evento? Cuéntamelo sin compromiso. Respondo en menos de 24h.</p>
+                  <ul class="svc-tags">
+                    <li>Respuesta en 24h</li><li>Toda España</li><li>Presupuesto cerrado</li><li>Proyectos a medida</li>
+                  </ul>
+                  <a href="#contacto" class="svc-link">Contactar →</a>
+                </div></div>
+              </div>
+            </li>
+
+          </ul>
         </div>
 
       </div>

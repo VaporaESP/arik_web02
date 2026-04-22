@@ -888,10 +888,28 @@ function shakeInvalid(el) {
 
 function initPortfolio() {
   $$('.pf-card').forEach(card => {
-    // Activar efecto al recibir foco (teclado)
     card.setAttribute('tabindex', '0');
     card.addEventListener('focus',  () => card.classList.add('focused'));
     card.addEventListener('blur',   () => card.classList.remove('focused'));
+  });
+}
+
+/* ════════════════════════════════════════════════
+   10b. SERVICES SPLIT — imagen cambia con hover
+   ════════════════════════════════════════════════ */
+function initServicesSplit() {
+  const items = $$('.svc-item');
+  const imgs  = $$('.svc-bg-img');
+  if (!items.length || !imgs.length) return;
+
+  function activate(svc) {
+    items.forEach(i => i.classList.toggle('active', i.dataset.svc === svc));
+    imgs.forEach(img => img.classList.toggle('active', img.dataset.svc === svc));
+  }
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => activate(item.dataset.svc));
+    item.addEventListener('focus',      () => activate(item.dataset.svc));
   });
 }
 
@@ -938,6 +956,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();   // 09 — Formulario
   initAudioPlayer();   // 09b — Reproductor de audio
   initPortfolio();     // 10 — Portfolio
+  initServicesSplit(); // 10b — Services split hover
   initMagnetic();      // 11 — Magnetic buttons
 
 });
