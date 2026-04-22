@@ -280,14 +280,14 @@ body.c-click .cursor {
 .nav-dropdown-wrap { position: relative; }
 .nav-link--has-dropdown { display: flex; align-items: center; gap: .3rem; }
 .nav-dropdown {
+  display: flex; flex-direction: column;
   position: absolute; top: calc(100% + 12px); left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-6px);
   background: rgba(9,13,20,.97);
   border: 1px solid var(--border-2);
   backdrop-filter: blur(16px);
   min-width: 160px;
   opacity: 0; visibility: hidden;
-  transform: translateX(-50%) translateY(-6px);
   transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s;
   z-index: 600;
 }
